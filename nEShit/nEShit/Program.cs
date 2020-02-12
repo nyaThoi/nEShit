@@ -8,6 +8,8 @@ namespace nEShit
 {
     static class Program
     {
+ 
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -23,9 +25,13 @@ namespace nEShit
             {
                 if (Load_Pattern.RetrieveAddresses((uint)msg))
                 {
-
+                    MessageBox.Show("Pattern not found! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(0);
                 }
                 Hook.SetHook();
+                var handle = Pinvoke.GetConsoleWindow();
+                Pinvoke.ShowWindow(handle, 5);
+
             }
 
             Application.EnableVisualStyles();

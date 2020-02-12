@@ -19,6 +19,9 @@ public class MemoryStore
     public static IntPtr EUDEMON_HASGIFT_FUNCTION = IntPtr.Zero;
     public static IntPtr CURRENT_MAP_BASE = IntPtr.Zero;
     public static IntPtr DETOUR_MAIN_LOOP_OFFSET = IntPtr.Zero;
+
+    public static IntPtr PLAYER_Resurrection = IntPtr.Zero;
+    public static IntPtr PLAYER_DoUIAction = IntPtr.Zero;
 }
 public class Load_Pattern
 {
@@ -37,6 +40,10 @@ public class Load_Pattern
         MemoryStore.EUDEMON_ISMEDITATING_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 84 C0 74 33 8B CE", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.EUDEMON_HASGIFT_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 84 C0 74 3A 8B CF E8 ? ? ? ? C7 45 ? ? ? ? ?", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.CURRENT_MAP_BASE = PatternManager.FindPatternAlain(gameproc, "8B 0D ? ? ? ? E8 ? ? ? ? A1 ? ? ? ? 85 C0 75 05 E8 ? ? ? ? ", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
+        
+        MemoryStore.PLAYER_Resurrection = PatternManager.FindPatternAlain(gameproc, "e8 ? ? ? ? 83 c4 ? 83 7d ? ? 72 ? ff 75 ? e8 ? ? ? ? 83 c4 ? 8b 4d ? b0 ? 64 89 0d ? ? ? ? 8b e5 5d c2 ? ? 8d 49", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
+        MemoryStore.PLAYER_DoUIAction = PatternManager.FindPatternAlain(gameproc, "e8 ? ? ? ? 83 c4 ? b0 ? c3 cc cc cc cc 55 8b ec 56", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
+
     }
 
     public static bool RetrieveAddresses(uint gamePID)
@@ -72,9 +79,12 @@ public class Load_Pattern
             MemoryStore.EUDEMON_SELECT_FUNCTION == IntPtr.Zero ||
             MemoryStore.EUDEMON_ISMEDITATING_FUNCTION == IntPtr.Zero ||
             MemoryStore.EUDEMON_HASGIFT_FUNCTION == IntPtr.Zero ||
-            MemoryStore.CURRENT_MAP_BASE == IntPtr.Zero
+            MemoryStore.CURRENT_MAP_BASE == IntPtr.Zero ||
+
+            MemoryStore.PLAYER_DoUIAction == IntPtr.Zero ||
+            MemoryStore.PLAYER_Resurrection == IntPtr.Zero
             )
-            return false;
-        else return true;
+            return true;
+        else return false;
     }
 }

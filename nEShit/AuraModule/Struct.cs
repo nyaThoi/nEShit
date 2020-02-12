@@ -46,7 +46,7 @@ namespace Struct
                 {
                         "use32",
                         $"push {(int)ReviveType}",
-                        $"call {0x01070290}",
+                        $"call {MemoryStore.PLAYER_Resurrection}",
                         "add esp,4",
                         "retn",
                 };
@@ -66,7 +66,7 @@ namespace Struct
                     "push 0",
                     $"push {slotType.ToString("D")}",
 
-                    $"call {0x0107AB60}",
+                    $"call {MemoryStore.PLAYER_DoUIAction}",
                     "add esp, 0xC",
                     "retn"
             };

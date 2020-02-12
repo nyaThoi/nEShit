@@ -1,0 +1,17 @@
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\nEShit.exe.config
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\nEShit.exe
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\nEShit.pdb
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\AuraModule.dll
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\Library.dll
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\MyMemory-x86.dll
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\AuraModule.pdb
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\AuraModule.dll.config
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\Library.pdb
+E:\Visual Studio\nEShit\nEShit\nEShit\bin\Release\Library.dll.config
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.csprojAssemblyReference.cache
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.MainInterface.resources
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.Properties.Resources.resources
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.csproj.GenerateResource.cache
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.csproj.CopyComplete
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.exe
+E:\Visual Studio\nEShit\nEShit\nEShit\obj\Release\nEShit.pdb
