@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nEShit", "nEShit\nEShit.csproj", "{C3FD1ECE-6404-4BF5-A2B4-89E83817BDB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{481139AF-7A51-4EB4-AAB6-01D293113430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuraModule", "AuraModule\AuraModule.csproj", "{57FD439E-9FB7-4AFE-83D6-A73756931DA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3FD1ECE-6404-4BF5-A2B4-89E83817BDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3FD1ECE-6404-4BF5-A2B4-89E83817BDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3FD1ECE-6404-4BF5-A2B4-89E83817BDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3FD1ECE-6404-4BF5-A2B4-89E83817BDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481139AF-7A51-4EB4-AAB6-01D293113430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481139AF-7A51-4EB4-AAB6-01D293113430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481139AF-7A51-4EB4-AAB6-01D293113430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481139AF-7A51-4EB4-AAB6-01D293113430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FD439E-9FB7-4AFE-83D6-A73756931DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FD439E-9FB7-4AFE-83D6-A73756931DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FD439E-9FB7-4AFE-83D6-A73756931DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FD439E-9FB7-4AFE-83D6-A73756931DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41DBF1D5-D64D-48DB-BD29-D197B1C40B24}
+	EndGlobalSection
+EndGlobal

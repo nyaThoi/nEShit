@@ -1,0 +1,13 @@
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\AuraModule.dll.config
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\AuraModule.dll
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\AuraModule.pdb
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\Library.dll
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\MyMemory-x86.dll
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\Library.pdb
+E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Debug\Library.dll.config
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.csprojAssemblyReference.cache
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.Properties.Resources.resources
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.csproj.GenerateResource.cache
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.csproj.CopyComplete
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.dll
+E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Debug\AuraModule.pdb
