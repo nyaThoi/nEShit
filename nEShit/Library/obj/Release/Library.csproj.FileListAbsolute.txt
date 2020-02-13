@@ -7,4 +7,3 @@ E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.csproj.GenerateResour
 E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.csproj.CopyComplete
 E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.dll
 E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.pdb
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.csprojAssemblyReference.cache

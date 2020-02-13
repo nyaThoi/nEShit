@@ -27,6 +27,13 @@ namespace Struct
                 return new EntityInfo(Memory.Reader.Read<IntPtr>(Pointer + 12));
             }
         }
+        public ModelInfo GetModelInfo
+        {
+            get
+            {
+                return new ModelInfo(Memory.Reader.Read<IntPtr>(Pointer + 16));
+            }
+        }
         public override string ToString()
         {
             return string.Concat(new string[]
@@ -79,7 +86,12 @@ namespace Struct
         public float SetMovementValue(float val = 20)
         {
             if (IsValid && GetEntityInfo.IsValid && GetEntityInfo.MovementValue != 0)
-                GetEntityInfo.MovementValue = val;
+            {
+                if (GetEntityInfo.MovementValue < val)
+                    GetEntityInfo.MovementValue = val;
+                if(GetModelInfo.IsMounted)
+                    GetEntityInfo.MovementValue = val + 10;
+            }
             return GetEntityInfo.MovementValue;
         }
     }
@@ -127,5 +139,27 @@ namespace Struct
 
 
     }
+    public class ModelInfo
+    {
+        public ModelInfo(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        public bool IsMounted
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 532) != 0u;
+            }
+        }
 
+    }
 }
