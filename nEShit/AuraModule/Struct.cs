@@ -88,9 +88,11 @@ namespace Struct
             if (IsValid && GetEntityInfo.IsValid && GetEntityInfo.MovementValue != 0)
             {
                 if (GetEntityInfo.MovementValue < val)
+                {
                     GetEntityInfo.MovementValue = val;
-                if(GetModelInfo.IsMounted)
-                    GetEntityInfo.MovementValue = val + 10;
+                    if (GetModelInfo.IsMounted)
+                        GetEntityInfo.MovementValue = val + 10;
+                }
             }
             return GetEntityInfo.MovementValue;
         }
