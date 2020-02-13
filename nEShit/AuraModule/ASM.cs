@@ -9,7 +9,7 @@ namespace AuraModule
 {
     public class ASM
     {
-        public static Struct.Entity GetLocalPlayer()
+        public static Struct.Entity GetLocalPlayer(/* = TARGETING_COLLECTIONS_BASE*/ /* = GET_LOCAL_PLAYER*/)
         {
             if (MemoryStore.GET_LOCAL_PLAYER == IntPtr.Zero || MemoryStore.TARGETING_COLLECTIONS_BASE == IntPtr.Zero) 
                 return new Struct.Entity(IntPtr.Zero);
@@ -28,6 +28,28 @@ namespace AuraModule
 
             return new Struct.Entity(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer"));
 
+        }        
+    }
+    public class Utils
+    {
+        public static Struct.Entity locPlayer;
+        private static Struct.CurrentMap GetCurrentMap(/* = CURRENT_MAP_BASE*/)
+        {
+            if (MemoryStore.CURRENT_MAP_BASE == IntPtr.Zero)
+                return new Struct.CurrentMap(IntPtr.Zero);
+            IntPtr cw = Memory.Reader.Read<IntPtr>(MemoryStore.CURRENT_MAP_BASE);
+            return new Struct.CurrentMap(cw);
+        }
+        public static bool IsInGame()
+        {
+            Struct.CurrentMap curMap = GetCurrentMap();
+            if (curMap.IsValid && curMap.mapID > 0 && curMap.mapID != 0x63/*char selection*/)
+            {
+                locPlayer = ASM.GetLocalPlayer();
+                if (locPlayer.IsValid)
+                    return locPlayer.GetEntityInfo.IsValid && locPlayer.GetModelInfo.IsValid && locPlayer.GetActorInfo.IsValid && locPlayer.GetEntityInfo.charName != "";
+            }
+            return false;
         }
 
     }

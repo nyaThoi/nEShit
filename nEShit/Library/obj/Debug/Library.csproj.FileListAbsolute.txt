@@ -7,3 +7,13 @@ E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.csproj.GenerateResource
 E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
 E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.dll
 E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.Properties.Resources.resources
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.csproj.GenerateResource.cache
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Debug\Library.dll.config
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Debug\Library.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Debug\Library.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Debug\MyMemory-x86.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.pdb

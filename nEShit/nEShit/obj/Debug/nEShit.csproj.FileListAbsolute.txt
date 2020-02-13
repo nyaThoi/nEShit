@@ -15,3 +15,21 @@ E:\Visual Studio\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.GenerateResource.c
 E:\Visual Studio\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CopyComplete
 E:\Visual Studio\nEShit\nEShit\nEShit\obj\Debug\nEShit.exe
 E:\Visual Studio\nEShit\nEShit\nEShit\obj\Debug\nEShit.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.csprojAssemblyReference.cache
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.MainInterface.resources
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.Properties.Resources.resources
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.GenerateResource.cache
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CoreCompileInputs.cache
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\nEShit.exe.config
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\nEShit.exe
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\nEShit.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\AuraModule.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\Library.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\MyMemory-x86.dll
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\AuraModule.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\AuraModule.dll.config
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\Library.pdb
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\bin\Debug\Library.dll.config
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CopyComplete
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.exe
+C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\nEShit\obj\Debug\nEShit.pdb

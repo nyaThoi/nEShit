@@ -31,8 +31,12 @@ namespace nEShit
         private void loop_Tick(object sender, EventArgs e)
         {
             if (!cb_loop.Checked) return;
-            AuraModule.ASM.GetLocalPlayer().SetMovementValue();
-            AuraModule.ASM.GetLocalPlayer().FullResurrection();
+
+            if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
+                return;
+            AuraModule.Utils.locPlayer.SetMovementValue(25);
+            AuraModule.Utils.locPlayer.FullResurrection();
+
         }
 
         private void cb_loop_CheckedChanged(object sender, EventArgs e)

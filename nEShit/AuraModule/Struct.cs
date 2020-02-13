@@ -20,20 +20,35 @@ namespace Struct
                 return Pointer != IntPtr.Zero;
             }
         }
+        public uint entityID
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0x8);
+            }
+        }
         public EntityInfo GetEntityInfo
         {
             get
             {
-                return new EntityInfo(Memory.Reader.Read<IntPtr>(Pointer + 12));
+                return new EntityInfo(Memory.Reader.Read<IntPtr>(Pointer + 0xC));
             }
         }
         public ModelInfo GetModelInfo
         {
             get
             {
-                return new ModelInfo(Memory.Reader.Read<IntPtr>(Pointer + 16));
+                return new ModelInfo(Memory.Reader.Read<IntPtr>(Pointer + 0x10));
             }
         }
+        public ActorInfo GetActorInfo
+        {
+            get
+            {
+                return new ActorInfo(Memory.Reader.Read<IntPtr>(Pointer + 0x30));
+            }
+        }
+
         public override string ToString()
         {
             return string.Concat(new string[]
@@ -138,7 +153,20 @@ namespace Struct
 
 
         }
-
+        public string charName
+        {
+            get
+            {
+                return Memory.Reader.ReadString(Pointer + 0x12C, Encoding.UTF7);
+            } 
+        }
+        public uint fishingDurability
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0xEC);
+            }
+        }
 
     }
     public class ModelInfo
@@ -164,4 +192,44 @@ namespace Struct
         }
 
     }
+    public class ActorInfo
+    {
+        public ActorInfo(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+    }
+
+    public class CurrentMap
+    {
+        public CurrentMap(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        public short mapID
+        {
+            get
+            {
+                return Memory.Reader.Read<short>(Pointer + 0x8);
+            }
+        }
+
+    }
+
 }

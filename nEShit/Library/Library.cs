@@ -160,7 +160,7 @@ public class Callback
             Orange = 3944,
             MiracleCube = 3941,
             FishKing = 3945,
-            Unknown = default
+            Unknown = 0
         }
         public unsafe static event Fishing.StreamTable GetVal
         {
