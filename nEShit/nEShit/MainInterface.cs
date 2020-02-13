@@ -49,7 +49,7 @@ namespace nEShit
 
         private void btn_teleportInterface_Click(object sender, EventArgs e)
         {
-            AuraModule.ASM.GetLocalPlayer().TeleportInterface();
+            AuraModule.Utils.locPlayer.TeleportInterface();
         }
     }
 }
