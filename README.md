@@ -7,6 +7,7 @@ Features:
 - Teleport Interface
 
 Bugs:
+- Hook Function doenst work~
 - Unhook Function call the Game Crash Message.
 
 Library from
