@@ -19,7 +19,7 @@ namespace nEShit
 
         private void b_debug_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void MainInterface_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,7 +34,7 @@ namespace nEShit
 
             if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
                 return;
-            AuraModule.Utils.locPlayer.SetMovementValue(25);
+            AuraModule.Utils.locPlayer.SetMovementValue(20);
             AuraModule.Utils.locPlayer.FullResurrection();
 
         }

@@ -28,12 +28,12 @@ public class Load_Pattern
     public static void SetPatterns()
     {
         System.Diagnostics.ProcessModule gameproc = Minimem.FindProcessModule("game.bin", false);
-        MemoryStore.DETOUR_MAIN_LOOP_OFFSET = PatternManager.FindPattern(gameproc, "55 8b ec 83 ec ? 80 3d ? ? ? ? ? 74 ? 8b 0d");
+        MemoryStore.DETOUR_MAIN_LOOP_OFFSET = PatternManager.FindPattern(gameproc, "80 be ? ? ? ? ? 74 ? e8 ? ? ? ? 8b c8");
 
         MemoryStore.GET_LOCAL_PLAYER = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 8B F8 0F BF 86 ? ? ? ?", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.INVENTORY_ACCESS_FUNCTION = PatternManager.FindPattern(gameproc, "55 8B EC 8B 55 08 33 C0 83 FA 0D");
         MemoryStore.TARGETING_COLLECTIONS_BASE = PatternManager.FindPatternAlain(gameproc, "8B 0D ? ? ? ? E8 ? ? ? ? 8B F8 0F BF 86 ? ? ? ?", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
-        MemoryStore.WND_INTERFACE_BASE = PatternManager.FindPatternAlain(gameproc, "89 35 00 ? ? ? 5E C3", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
+        MemoryStore.WND_INTERFACE_BASE = PatternManager.FindPatternAlain(gameproc, "3b 35 ? ? ? ? 0f 85 ? ? ? ? 5f 5b 5e", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
         MemoryStore.EUDEMON_GETEUDEMON_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 85 C0 74 C2", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 0F B7 86 ? ? ? ? 83 C4 10 ", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.EUDEMON_SELECT_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 6A 01 8B CF E8 ? ? ? ? 8B CF E8 ? ? ? ? 8B CF 5F 5B E9 ? ? ? ?", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);

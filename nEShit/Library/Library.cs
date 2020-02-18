@@ -276,6 +276,23 @@ public class Memory
             return Mem.ReadBytes(address,count);
         }
 
+        public unsafe static string ReadSTDString(IntPtr intPtr, Encoding encoding)
+        {
+            var Mem = Attach.remoteProcess.MemoryManager;
+            if (intPtr == IntPtr.Zero) 
+                return string.Empty;
+
+            int num = Mem.Read<int>(intPtr + 16);
+            int num2 = Mem.Read<int>(intPtr + 20);
+            if (num <= 0 || num > 4096) 
+                return string.Empty;
+            if (num2 < 16) 
+                return ReadString(intPtr, encoding, num);
+
+            return ReadString(Read<IntPtr>(intPtr), encoding, num);
+        }
+
+
         public unsafe static Task<T> AsyncRead<T>(IntPtr address) where T : struct
         {
             return Task.Run(() => Read<T>(address));

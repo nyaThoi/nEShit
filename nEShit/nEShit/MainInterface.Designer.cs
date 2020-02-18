@@ -38,6 +38,7 @@
             // loop
             // 
             this.loop.Enabled = true;
+            this.loop.Interval = 500;
             this.loop.Tick += new System.EventHandler(this.loop_Tick);
             // 
             // cb_loop
@@ -45,10 +46,9 @@
             this.cb_loop.AutoSize = true;
             this.cb_loop.Checked = true;
             this.cb_loop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_loop.Location = new System.Drawing.Point(16, 15);
-            this.cb_loop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_loop.Location = new System.Drawing.Point(12, 12);
             this.cb_loop.Name = "cb_loop";
-            this.cb_loop.Size = new System.Drawing.Size(62, 21);
+            this.cb_loop.Size = new System.Drawing.Size(50, 17);
             this.cb_loop.TabIndex = 1;
             this.cb_loop.Text = "Loop";
             this.cb_loop.UseVisualStyleBackColor = true;
@@ -56,10 +56,9 @@
             // 
             // b_debug
             // 
-            this.b_debug.Location = new System.Drawing.Point(484, 39);
-            this.b_debug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b_debug.Location = new System.Drawing.Point(363, 32);
             this.b_debug.Name = "b_debug";
-            this.b_debug.Size = new System.Drawing.Size(100, 28);
+            this.b_debug.Size = new System.Drawing.Size(75, 23);
             this.b_debug.TabIndex = 0;
             this.b_debug.Text = "Debug";
             this.b_debug.UseVisualStyleBackColor = true;
@@ -67,10 +66,9 @@
             // 
             // btn_teleportInterface
             // 
-            this.btn_teleportInterface.Location = new System.Drawing.Point(16, 43);
-            this.btn_teleportInterface.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_teleportInterface.Location = new System.Drawing.Point(12, 35);
             this.btn_teleportInterface.Name = "btn_teleportInterface";
-            this.btn_teleportInterface.Size = new System.Drawing.Size(149, 28);
+            this.btn_teleportInterface.Size = new System.Drawing.Size(112, 23);
             this.btn_teleportInterface.TabIndex = 2;
             this.btn_teleportInterface.Text = "Teleport Interface";
             this.btn_teleportInterface.UseVisualStyleBackColor = true;
@@ -78,13 +76,12 @@
             // 
             // MainInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 87);
+            this.ClientSize = new System.Drawing.Size(177, 71);
             this.Controls.Add(this.btn_teleportInterface);
             this.Controls.Add(this.cb_loop);
             this.Controls.Add(this.b_debug);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainInterface";
             this.Text = "nEShit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainInterface_FormClosing);

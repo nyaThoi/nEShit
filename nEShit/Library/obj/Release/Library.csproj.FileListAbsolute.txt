@@ -1,12 +1,3 @@
-E:\Visual Studio\nEShit\nEShit\Library\bin\Release\Library.dll.config
-E:\Visual Studio\nEShit\nEShit\Library\bin\Release\Library.dll
-E:\Visual Studio\nEShit\nEShit\Library\bin\Release\Library.pdb
-E:\Visual Studio\nEShit\nEShit\Library\bin\Release\MyMemory-x86.dll
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.Properties.Resources.resources
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.csproj.GenerateResource.cache
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.csproj.CopyComplete
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.dll
-E:\Visual Studio\nEShit\nEShit\Library\obj\Release\Library.pdb
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Release\Library.dll.config
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Release\Library.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Release\Library.pdb

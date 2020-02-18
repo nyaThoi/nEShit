@@ -17,3 +17,4 @@ C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\bin\Debug\MyMemory-x86.
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.pdb
+E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.csprojAssemblyReference.cache

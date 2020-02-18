@@ -1,16 +1,3 @@
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll.config
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\AuraModule.pdb
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\Library.dll
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\MyMemory-x86.dll
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\Library.pdb
-E:\Visual Studio\nEShit\nEShit\AuraModule\bin\Release\Library.dll.config
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csprojAssemblyReference.cache
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.Properties.Resources.resources
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csproj.GenerateResource.cache
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csproj.CopyComplete
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.dll
-E:\Visual Studio\nEShit\nEShit\AuraModule\obj\Release\AuraModule.pdb
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll.config
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\bin\Release\AuraModule.pdb

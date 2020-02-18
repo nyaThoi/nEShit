@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Struct
 {
+    #region Entity
     public class Entity
     {
         public Entity(IntPtr intPtr)
@@ -61,6 +62,8 @@ namespace Struct
                 Environment.NewLine,
             });
         }
+
+        #region ASM
         private IntPtr Resurrection(int ReviveType)
         {
 
@@ -72,12 +75,14 @@ namespace Struct
                         "add esp,4",
                         "retn",
                 };
-            return Memory.Assemble.Execute<IntPtr>(mnemonics, "Revive");
+            //return Memory.Assemble.Execute<IntPtr>(mnemonics, "Revive");
+            return Memory.Assemble.InjectAndExecute(mnemonics);
+
         }
         public void FullResurrection()
         {
-            if(IsValid && GetEntityInfo.IsValid && GetEntityInfo.currentHP == 0)
-            Resurrection(0);
+            if (IsValid && GetEntityInfo.IsValid && GetEntityInfo.currentHP == 0)
+                Resurrection(0);
         }
         private IntPtr DoUIAction(int slotType)
         {
@@ -92,26 +97,30 @@ namespace Struct
                     "add esp, 0xC",
                     "retn"
             };
-            return Memory.Assemble.Execute<IntPtr>(mnemonics, "DoUIAction");
+            //return Memory.Assemble.Execute<IntPtr>(mnemonics, "DoUIAction");
+            return Memory.Assemble.InjectAndExecute(mnemonics);
+
         }
         public void TeleportInterface()
         {
             DoUIAction(0x11);
         }
+        #endregion
+
         public float SetMovementValue(float val = 20)
         {
             if (IsValid && GetEntityInfo.IsValid && GetEntityInfo.MovementValue != 0)
             {
                 if (GetEntityInfo.MovementValue < val)
-                {
                     GetEntityInfo.MovementValue = val;
-                    if (GetModelInfo.IsMounted)
-                        GetEntityInfo.MovementValue = val + 10;
-                }
+
+                if (GetModelInfo.IsMounted)
+                    GetEntityInfo.MovementValue = val + 10;
             }
             return GetEntityInfo.MovementValue;
         }
     }
+
     public class EntityInfo
     {
         public EntityInfo(IntPtr intPtr)
@@ -187,7 +196,7 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<uint>(Pointer + 532) != 0u;
+                return Memory.Reader.Read<uint>(Pointer + 0x1F4) != 0u;
             }
         }
 
@@ -207,7 +216,7 @@ namespace Struct
             }
         }
     }
-
+    #endregion
     public class CurrentMap
     {
         public CurrentMap(IntPtr intPtr)
@@ -231,5 +240,69 @@ namespace Struct
         }
 
     }
+    public class Eudemon
+    {
+        public Eudemon(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        public uint currentPM
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0x134);
+            }
+        }
+        public short chatAttempts
+        {
+            get
+            {
+                return Memory.Reader.Read<short>(Pointer + 0x138);
+            }
+        }
+    }
 
+    #region WindowManager Struct
+    public class EudemonExtendWindow
+    {
+        public EudemonExtendWindow(IntPtr intPtr)
+        {
+            WndPointer = intPtr;
+        }
+        public IntPtr WndPointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return WndPointer != IntPtr.Zero;
+            }
+        }
+
+    }
+    public class FishingWindow
+    {
+        public FishingWindow(IntPtr intPtr)
+        {
+            WndPointer = intPtr;
+        }
+        public IntPtr WndPointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return WndPointer != IntPtr.Zero;
+            }
+        }
+
+    }
+
+    #endregion
 }

@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MyMemory-x86">
-      <HintPath>..\MyMemory-x86.dll</HintPath>
+      <HintPath>..\..\..\nThoi - VS Project\Repos\TwinProject\nTSaga\bin\Debug\MyMemory-x86.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
