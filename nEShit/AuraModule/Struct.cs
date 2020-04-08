@@ -301,18 +301,11 @@ namespace Struct
                 return WndPointer != IntPtr.Zero;
             }
         }
-        private short action
-        {
-            get
-            {
-                return Memory.Reader.Read<short>(WndPointer + 0x21C);
-            }
-        }
         private float blueRangeMax
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x24C);
+                return Memory.Reader.Read<float>(WndPointer + 0x240);
             }
             set
             {
@@ -323,25 +316,18 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x250);
+                return Memory.Reader.Read<float>(WndPointer + 0x244);
             }
             set
             {
                 blueRangeMin = value;
             }
         }
-        private float cursorValue
-        {
-            get
-            {
-                return Memory.Reader.Read<float>(WndPointer + 0x268);
-            }
-        }
         private float currentLine
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x26C);
+                return Memory.Reader.Read<float>(WndPointer + 0x260);
             }
             set
             {
@@ -358,18 +344,13 @@ namespace Struct
         }
         public void setBlueRangeHack()
         {
-            if(IsValid)
-            {
-                blueRangeMax = 0f;
-                blueRangeMin = 1000f;
-            }
+            blueRangeMax = 0f;
+            blueRangeMin = 1000f;
+
         }
         public void setCenterLineValue()
         {
-            if(IsValid)
-            {
-                currentLine = blueCenterValue;
-            }
+            currentLine = blueCenterValue;
         }
     }
 
