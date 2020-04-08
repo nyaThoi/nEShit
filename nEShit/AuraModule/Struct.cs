@@ -301,7 +301,72 @@ namespace Struct
                 return WndPointer != IntPtr.Zero;
             }
         }
-
+        private short action
+        {
+            get
+            {
+                return Memory.Reader.Read<short>(WndPointer + 0x21C);
+            }
+        }
+        private float blueRangeMax
+        {
+            get
+            {
+                return Memory.Reader.Read<float>(WndPointer + 0x24C);
+            }
+            set
+            {
+                blueRangeMax = value;
+            }
+        }
+        private float blueRangeMin
+        {
+            get
+            {
+                return Memory.Reader.Read<float>(WndPointer + 0x250);
+            }
+            set
+            {
+                blueRangeMin = value;
+            }
+        }
+        private float cursorValue
+        {
+            get
+            {
+                return Memory.Reader.Read<float>(WndPointer + 0x268);
+            }
+        }
+        private float currentLine
+        {
+            get
+            {
+                return Memory.Reader.Read<float>(WndPointer + 0x26C);
+            }
+            set
+            {
+                currentLine = value;
+            }
+        }
+        public float blueCenterValue()
+        {
+            return (blueRangeMin + blueRangeMax) / 2f;
+        }
+        public void setBlueRangeHack()
+        {
+            if(IsValid)
+            {
+                blueRangeMax = 0f;
+                blueRangeMax = 1000f;
+            }
+        }
+        public void setCenterLineValue()
+        {
+            if(IsValid)
+            {
+                currentLine = blueCenterValue();
+            }
+        }
     }
 
     #endregion
