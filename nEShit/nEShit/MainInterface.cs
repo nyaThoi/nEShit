@@ -36,6 +36,7 @@ namespace nEShit
                 return;
             AuraModule.Utils.locPlayer.SetMovementValue(20);
             AuraModule.Utils.locPlayer.FullResurrection();
+            WindowManager.GetFishingWindow.setBlueRangeHack();
 
         }
 

@@ -309,7 +309,7 @@ namespace Struct
             }
             set
             {
-                blueRangeMax = value;
+                Memory.Writer.Write<float>(WndPointer + 0x240, value);
             }
         }
         private float blueRangeMin
@@ -320,7 +320,7 @@ namespace Struct
             }
             set
             {
-                blueRangeMin = value;
+                Memory.Writer.Write<float>(WndPointer + 0x244, value);
             }
         }
         private float currentLine
@@ -331,7 +331,7 @@ namespace Struct
             }
             set
             {
-                currentLine = value;
+                Memory.Writer.Write<float>(WndPointer + 0x260, value);
             }
         }
         private float blueCenterValue
@@ -344,12 +344,13 @@ namespace Struct
         }
         public void setBlueRangeHack()
         {
+            if (!IsValid) return;
             blueRangeMax = 0f;
             blueRangeMin = 1000f;
-
         }
         public void setCenterLineValue()
         {
+            if (!IsValid) return;
             currentLine = blueCenterValue;
         }
     }
