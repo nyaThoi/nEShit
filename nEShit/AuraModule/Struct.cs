@@ -278,7 +278,7 @@ namespace Struct
             WndPointer = intPtr;
         }
         public IntPtr WndPointer { get; set; }
-        public bool IsValid
+        private bool IsValid
         {
             get
             {
@@ -294,7 +294,7 @@ namespace Struct
             WndPointer = intPtr;
         }
         public IntPtr WndPointer { get; set; }
-        public bool IsValid
+        private bool IsValid
         {
             get
             {
@@ -357,7 +357,7 @@ namespace Struct
             if(IsValid)
             {
                 blueRangeMax = 0f;
-                blueRangeMax = 1000f;
+                blueRangeMin = 1000f;
             }
         }
         public void setCenterLineValue()
