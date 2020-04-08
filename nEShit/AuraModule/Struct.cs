@@ -348,7 +348,7 @@ namespace Struct
                 currentLine = value;
             }
         }
-        public float blueCenterValue
+        private float blueCenterValue
         {
             get
             {
