@@ -348,9 +348,13 @@ namespace Struct
                 currentLine = value;
             }
         }
-        public float blueCenterValue()
+        public float blueCenterValue
         {
-            return (blueRangeMin + blueRangeMax) / 2f;
+            get
+            {
+                return (blueRangeMin + blueRangeMax) / 2f;
+
+            }
         }
         public void setBlueRangeHack()
         {
@@ -364,7 +368,7 @@ namespace Struct
         {
             if(IsValid)
             {
-                currentLine = blueCenterValue();
+                currentLine = blueCenterValue;
             }
         }
     }
