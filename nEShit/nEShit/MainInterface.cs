@@ -24,7 +24,7 @@ namespace nEShit
 
         private void MainInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Call Game Crash Msg lul ~
+            //Call Game Crash Msg lul
             //Hook.UnsetHook();
         }
 
@@ -34,10 +34,15 @@ namespace nEShit
 
             if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
                 return;
-            AuraModule.Utils.locPlayer.SetMovementValue(20);
-            AuraModule.Utils.locPlayer.FullResurrection();
-            WindowManager.GetFishingWindow.setBlueRangeHack();
 
+            // Set Movement Value in Float
+            AuraModule.Utils.locPlayer.SetMovementValue(20);
+            // Auto Resurrection if currentLife is 0
+            AuraModule.Utils.locPlayer.FullResurrection(); 
+            // Auto Blue Range Hack assist for Fishing
+            WindowManager.GetFishingWindow.setBlueRangeHack();
+            // Auto Eidolon Link without Inventory Check
+            WindowManager.GetEudemonExtendWindow.UpdateEudemons(25, false); 
         }
 
         private void cb_loop_CheckedChanged(object sender, EventArgs e)
@@ -45,7 +50,6 @@ namespace nEShit
             if (cb_loop.Checked)
                 loop.Enabled = true;
             else loop.Enabled = false;
-
         }
 
         private void btn_teleportInterface_Click(object sender, EventArgs e)

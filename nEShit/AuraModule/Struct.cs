@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Struct
@@ -75,8 +76,8 @@ namespace Struct
                         "add esp,4",
                         "retn",
                 };
-            //return Memory.Assemble.Execute<IntPtr>(mnemonics, "Revive");
-            return Memory.Assemble.InjectAndExecute(mnemonics);
+            return Memory.Assemble.Execute<IntPtr>(mnemonics, "Revive");
+            //return Memory.Assemble.InjectAndExecute(mnemonics);
 
         }
         public void FullResurrection()
@@ -97,8 +98,8 @@ namespace Struct
                     "add esp, 0xC",
                     "retn"
             };
-            //return Memory.Assemble.Execute<IntPtr>(mnemonics, "DoUIAction");
-            return Memory.Assemble.InjectAndExecute(mnemonics);
+            return Memory.Assemble.Execute<IntPtr>(mnemonics, "DoUIAction");
+            //return Memory.Assemble.InjectAndExecute(mnemonics);
 
         }
         public void TeleportInterface()
@@ -120,7 +121,6 @@ namespace Struct
             return GetEntityInfo.MovementValue;
         }
     }
-
     public class EntityInfo
     {
         public EntityInfo(IntPtr intPtr)
@@ -258,16 +258,17 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<uint>(Pointer + 0x134);
+                return Memory.Reader.Read<uint>(Pointer + 0x124);
             }
         }
         public short chatAttempts
         {
             get
             {
-                return Memory.Reader.Read<short>(Pointer + 0x138);
+                return Memory.Reader.Read<short>(Pointer + 0x128);
             }
         }
+
     }
 
     #region WindowManager Struct
@@ -283,6 +284,166 @@ namespace Struct
             get
             {
                 return WndPointer != IntPtr.Zero;
+            }
+        }
+
+        private readonly int[] bestMessageIDs = new int[]
+{
+            0x36,
+            0xd8,
+            0xd9
+};
+        private enum EudemonAction
+        {
+            EA_TALK = 1,
+            EA_MEDITATION = 2,
+            EA_RETRIEVE = 4
+        };
+        private Struct.Eudemon GetEudemonBySlot(int slotID)
+        {
+            if (slotID < 0 || slotID > 3) 
+                return new Struct.Eudemon(IntPtr.Zero);
+            string[] mnemonics = new string[]
+ {
+                    "use32",
+                    $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
+                    "test eax, eax",
+                    "je .out",
+                    "mov ecx, eax",
+                    "xor eax, eax",
+                    $"call {MemoryStore.GET_LOCAL_PLAYER}",
+                    "je .out",
+                    $"push {(int)slotID}",
+                    "mov ecx, eax",
+                    $"call {MemoryStore.EUDEMON_GETEUDEMON_FUNCTION}",
+                    ".out:",
+                    "retn"
+ };
+
+            return new Struct.Eudemon(Memory.Assemble.Execute<IntPtr>(mnemonics, "Eudemon - GetEudemonBySlot"));
+            //return new Struct.Eudemon(Memory.Assemble.InjectAndExecute(mnemonics));
+        }
+        private bool TryEudemonAction(int slotID, EudemonAction action)
+        {
+            int arg1 = 0;
+            Random random = new Random();
+            Struct.Eudemon eudemon = GetEudemonBySlot(slotID);
+            if (eudemon.Pointer == IntPtr.Zero) return false;
+            switch (action)
+            {
+                case EudemonAction.EA_TALK:
+                    if (eudemon.chatAttempts == 0 /*|| eudemon.chatAttempts == 99*/)
+                        return false;
+                    //		LogMessage(Eidolons, StringFormat("Talking to eidolon at slot %d.", slotID + 1));
+                    Console.WriteLine($"[EAL]: Talking to eidolon at slot {slotID + 1}");
+                    arg1 = bestMessageIDs[random.Next(bestMessageIDs.Length)];
+                    break;
+                case EudemonAction.EA_MEDITATION:
+                    if (eudemon.currentPM < 10)
+                        return false;
+                    //		LogMessage(Eidolons, StringFormat("Linking eidolon at slot %d.", slotID + 1));
+                    Console.WriteLine($"[EAL]: Linking eidolon at slot {slotID + 1}");
+                    break;
+                case EudemonAction.EA_RETRIEVE:
+                    //		LogMessage(Eidolons, StringFormat("Retrieving object from eidolon at slot %d.", slotID + 1));
+                    Console.WriteLine($"[EAL]: Retrieving object from eidolon at slot {slotID + 1}");
+                    break;
+            }
+            string[] mnemonics = new string[]
+        {
+                    "use32",
+                    $"mov eax, {eudemon.Pointer}",
+                    "mov eax, [eax]",
+                    "push 0",
+                    $"push {action.ToString("D")}",
+                    $"push {arg1}",
+                    "push eax",
+
+                    $"call {MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION}",
+                    "add esp, 10h",
+                    "retn"
+        };
+            Memory.Assemble.Execute<IntPtr>(mnemonics, "Eudemon - TryEudemonAction");
+            //Memory.Assemble.InjectAndExecute(mnemonics);
+            return true;
+        }
+        private bool IsEudemonMeditating(int slotID)
+        {
+            int rt = 0;
+            string[] mnemonics = new string[]
+                {
+                "use32",
+                $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
+                "test eax, eax",
+                "je @out",
+                "mov ecx, eax",
+                "xor eax, eax",
+                $"call {MemoryStore.GET_LOCAL_PLAYER}",
+                "je @out",
+                $"push {(int)slotID}",
+                "mov ecx, eax",
+                $"call {MemoryStore.EUDEMON_ISMEDITATING_FUNCTION}",
+                "test eax, eax",
+                "movzx eax, al",
+                "@out:",
+                "retn"
+                };
+            rt = Memory.Assemble.Execute<int>(mnemonics, "Eudemon - IsEudemonMeditating");
+            //rt = (int)Memory.Assemble.InjectAndExecute(mnemonics);
+            return rt == 1;
+        }
+        private bool HasEudemonGift(int slotID)
+        {
+            int rt = 0;
+            string[] mnemonics = new string[]
+            {
+                "use32",
+                /*get LocalPlayer*/
+                $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
+                "test eax, eax",
+                "je @out",
+                "mov ecx, eax",
+                "xor eax, eax",
+                $"call {MemoryStore.GET_LOCAL_PLAYER}",
+                "je @out",
+                /*func*/
+                $"push {(int)slotID}",
+                "mov ecx, eax",
+                $"call {MemoryStore.EUDEMON_HASGIFT_FUNCTION}",
+                "test eax, eax",
+                "movzx eax, al",
+                "@out:",
+                "retn"
+            };
+            rt = Memory.Assemble.Execute<int>(mnemonics, "Eudemon - HasEudemonGift");
+            //rt = (int)Memory.Assemble.InjectAndExecute(mnemonics);
+            return rt == 1;
+        }
+        public void UpdateEudemons(int sleepTime, bool localPlayerCheck = false)
+        {
+            if (localPlayerCheck)
+                if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
+                    return;
+
+            if (!IsValid) return;
+
+            for (int i = 0; i < 4; ++i)
+            {
+                if (!IsEudemonMeditating(i))
+                {
+                    if (HasEudemonGift(i))
+                    {
+                        if (TryEudemonAction(i, EudemonAction.EA_RETRIEVE))
+                            break;
+                    }
+                    if (!TryEudemonAction(i, EudemonAction.EA_TALK))
+                    {
+                        if (TryEudemonAction(i, EudemonAction.EA_MEDITATION))
+                            break;// only 1 meditation start at a time
+                    }
+                    else// 1 talk only at a time
+                        break;
+                }
             }
         }
 

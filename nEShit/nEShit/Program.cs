@@ -28,9 +28,9 @@ namespace nEShit
                     MessageBox.Show("Pattern not found! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(0);
                 }
-                //Hook.SetHook();
+                Hook.SetHook();
                 var handle = Pinvoke.GetConsoleWindow();
-                Pinvoke.ShowWindow(handle, 0);
+                //Pinvoke.ShowWindow(handle, 0);
 
 
             }

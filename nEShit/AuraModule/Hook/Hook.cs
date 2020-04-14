@@ -9,7 +9,7 @@ public class Hook
 {
     public static void SetHook()
     {
-        if (!ExecuteCB.InstallHook(MemoryStore.DETOUR_MAIN_LOOP_OFFSET, 7))
+        if (!ExecuteCB.InstallHook(MemoryStore.DETOUR_MAIN_LOOP_OFFSET, 6))
         {
             MessageBox.Show("Failed to create and apply JmpHook", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Environment.Exit(0);
