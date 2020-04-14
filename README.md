@@ -11,6 +11,7 @@ Features:
 
 
 Bugs:
+- Unhook/Reject to Game Process doenst work, to fix that restart ur Game
 
 
 Library from
