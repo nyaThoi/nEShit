@@ -7,8 +7,11 @@ Features:
 - Teleport Interface
 - Fishing:
 -- Blue Range Hack (Helper Tool)
+- Eidolon Auto Link without Inventory Check (https://github.com/AlainProvist/EAL)
+
 
 Bugs:
+- Unhook/Reject to Game Process doenst work, to fix that restart ur Game
 
 
 Library from
