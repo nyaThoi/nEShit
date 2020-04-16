@@ -41,8 +41,10 @@ namespace nEShit
             AuraModule.Utils.locPlayer.FullResurrection(); 
             // Auto Blue Range Hack assist for Fishing
             WindowManager.GetFishingWindow.setBlueRangeHack();
+            IntPtr sd = WindowManager.GetFishingWindow.WndPointer;
             // Auto Eidolon Link without Inventory Check
             WindowManager.GetEudemonExtendWindow.UpdateEudemons(25, false); 
+
         }
 
         private void cb_loop_CheckedChanged(object sender, EventArgs e)

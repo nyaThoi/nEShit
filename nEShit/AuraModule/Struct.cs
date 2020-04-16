@@ -176,6 +176,13 @@ namespace Struct
                 return Memory.Reader.Read<uint>(Pointer + 0xEC);
             }
         }
+        public IntPtr inventoryPtr
+        {
+            get
+            {
+                return Memory.Reader.Read<IntPtr>(Pointer + 0x540);
+            }
+        }
 
     }
     public class ModelInfo
@@ -270,6 +277,133 @@ namespace Struct
         }
 
     }
+
+    #region Inventory
+    public class InventoryBag
+    {
+        public InventoryBag(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        private uint bagID
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0x4);
+            }
+        }
+        
+        private InventoryItem begin
+        {
+            get
+            {
+                return new InventoryItem(Memory.Reader.Read<IntPtr>(Pointer + 0x8));
+            }
+        }
+        private InventoryItem end
+        {
+            get
+            {
+                return new InventoryItem(Memory.Reader.Read<IntPtr>(Pointer + 0xC));
+            }
+        }
+
+        private uint Begin
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0x8);
+            }
+        }
+        private uint End
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0xC);
+            }
+        }
+
+        public uint GetItemCount()
+        {
+            return (((uint)end.Pointer - (uint)begin.Pointer) >> 2);
+        }
+        public InventoryItem GetItem(uint index)
+        {
+            return (index < GetItemCount()) && begin.itemID == index ? begin : null;
+        }
+
+        public uint NumSlots
+        {
+            get
+            {
+                return ((End - Begin) / 4u);
+            }
+        }
+        public uint UsedSlots
+        {
+            get
+            {
+                uint num = 0;
+                IntPtr pointer = new IntPtr(Begin);
+                uint num2 = 0;
+                while (num2 < NumSlots && num2 <= 400)// IBT_MAX = 20 x20
+                {
+                    IntPtr intPtr = Memory.Reader.Read<IntPtr>(pointer + (int)num2 * 4);
+                    if (intPtr != IntPtr.Zero && Memory.Reader.Read<IntPtr>(intPtr + 0) != IntPtr.Zero)
+                    {
+                        num++;
+                    }
+                    num2++;
+                }
+                return num;
+            }
+        }
+        public uint FreeSlots
+        {
+            get
+            {
+                return NumSlots - UsedSlots;
+            }
+        }
+    }
+    public class InventoryItem
+    {
+        public InventoryItem(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }        
+        public uint itemID
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer);
+            }
+        }
+        public bool IsFilled
+        {
+            get
+            {
+                return itemID != 0;
+            }
+        }
+    }
+    #endregion
 
     #region WindowManager Struct
     public class EudemonExtendWindow

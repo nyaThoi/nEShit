@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ASM.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="Struct.cs" />
     <Compile Include="Hook\Hook.cs" />
     <Compile Include="Pattern\Memory.cs" />

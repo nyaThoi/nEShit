@@ -55,6 +55,20 @@ class Pinvoke
                 x.windowname = p.MainWindowTitle;
                 Console.WriteLine($"PID {x}");
             }
+            if (p.ProcessName.ToLower().Contains("client.exe"))
+            {
+                InterObject x = new InterObject();
+                x.pid = p.Id;
+                x.windowname = p.MainWindowTitle;
+                Console.WriteLine($"PID {x}");
+            }
+            if (p.ProcessName.ToLower().Contains("Launcher.exe"))
+            {
+                InterObject x = new InterObject();
+                x.pid = p.Id;
+                x.windowname = p.MainWindowTitle;
+                Console.WriteLine($"PID {x}");
+            }
         }
     }
 

@@ -30,6 +30,24 @@ namespace AuraModule
             //return new Struct.Entity(Memory.Assemble.InjectAndExecute(mnemonics));
 
         }
+        public static Struct.InventoryBag GetInventoryBag(uint bagId, InventoryType inventoryType = InventoryType.IT_BackPack)
+        {
+            IntPtr thisPtr = Utils.GetInventoryAccessPtr();
+            if (thisPtr == IntPtr.Zero) return new Struct.InventoryBag(IntPtr.Zero);
+
+            string[] mnemonics = new string[]
+{
+                "use32",
+                $"mov ecx, {thisPtr}",
+                $"push {bagId}",
+                $"push {(int)inventoryType}",
+                $"call {MemoryStore.INVENTORY_ACCESS_FUNCTION}",
+                "retn"
+};
+            return new Struct.InventoryBag(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag"));
+
+        }
+
     }
     public class Utils
     {
@@ -52,6 +70,53 @@ namespace AuraModule
             }
             return false;
         }
-
+        public static IntPtr GetInventoryAccessPtr()
+        {
+            Struct.Entity info = ASM.GetLocalPlayer();
+            if (!info.IsValid || !info.GetEntityInfo.IsValid) return IntPtr.Zero;
+            IntPtr res = info.GetEntityInfo.inventoryPtr;
+            return res;
+        }
+        private static uint GetInventorySize()
+        {
+            uint count = 0;
+            for (uint i = 0; i <= (uint)InventoryBagType.IBT_MAX; ++i)
+            {
+                Struct.InventoryBag bag = ASM.GetInventoryBag(i, InventoryType.IT_BackPack);
+                if (bag.IsValid)
+                {
+                    count += bag.GetItemCount();
+                }
+            }
+            return count;
+        }
+        private static List<Struct.InventoryBag> EquippedBag
+        {
+            get
+            {
+                List<Struct.InventoryBag> list = new List<Struct.InventoryBag>();
+                for (uint i = 0; i < (uint)InventoryBagType.IBT_MAX; i++)
+                {
+                    Struct.InventoryBag bag = ASM.GetInventoryBag(i, InventoryType.IT_BackPack);
+                    if (bag.IsValid)
+                    {
+                        list.Add(bag);
+                    }
+                }
+                return list;
+            }
+        }
+        private static uint BagsFreeSlots
+        {
+            get
+            {
+                uint num = 0;
+                foreach (Struct.InventoryBag akinventoryBag in EquippedBag)
+                {
+                    num += akinventoryBag.FreeSlots;
+                }
+                return num;
+            }
+        }
     }
 }
