@@ -34,7 +34,7 @@ class Pinvoke
         }
         public override string ToString()
         {
-            const int MaxLength = 10;
+            const int MaxLength = 15;
 
             string outPut = "";
             if (windowname.Length > MaxLength)
