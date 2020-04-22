@@ -34,8 +34,14 @@ class Pinvoke
         }
         public override string ToString()
         {
-            //return pid.ToString() + pname + " - " + " [" + windowname + "]";
-            return $"[{pid}] [{windowname}]";
+            const int MaxLength = 10;
+
+            string outPut = "";
+            if (windowname.Length > MaxLength)
+            {
+                outPut = windowname.Substring(0, MaxLength);
+            }
+            return $"[{pid}] [{outPut}]";
         }
     }
 
@@ -53,21 +59,21 @@ class Pinvoke
                 InterObject x = new InterObject();
                 x.pid = p.Id;
                 x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"PID {x}");
+                Console.WriteLine($"{x}");
             }
             if (p.ProcessName.ToLower().Contains("client.exe"))
             {
                 InterObject x = new InterObject();
                 x.pid = p.Id;
                 x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"PID {x}");
+                Console.WriteLine($"{x}");
             }
             if (p.ProcessName.ToLower().Contains("Launcher.exe"))
             {
                 InterObject x = new InterObject();
                 x.pid = p.Id;
                 x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"PID {x}");
+                Console.WriteLine($"{x}");
             }
         }
     }

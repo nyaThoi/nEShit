@@ -36,14 +36,17 @@ namespace nEShit
                 return;
 
             // Set Movement Value in Float
-            AuraModule.Utils.locPlayer.SetMovementValue(20);
+            if(speedhack.Checked)
+                AuraModule.Utils.locPlayer.SetMovementValue((float)trackBar1.Value);
             // Auto Resurrection if currentLife is 0
-            AuraModule.Utils.locPlayer.FullResurrection(); 
+            if(resurrection.Checked)
+                AuraModule.Utils.locPlayer.FullResurrection(); 
+            // Auto Eidolon Link without Inventory Check
+            if (eal.Checked)
+                WindowManager.GetEudemonExtendWindow.UpdateEudemons(false);
+
             // Auto Blue Range Hack assist for Fishing
             WindowManager.GetFishingWindow.setBlueRangeHack();
-            IntPtr sd = WindowManager.GetFishingWindow.WndPointer;
-            // Auto Eidolon Link without Inventory Check
-            WindowManager.GetEudemonExtendWindow.UpdateEudemons(25, false); 
 
         }
 
@@ -57,6 +60,11 @@ namespace nEShit
         private void btn_teleportInterface_Click(object sender, EventArgs e)
         {
             AuraModule.Utils.locPlayer.TeleportInterface();
+        }
+
+        private void btn_Resurrection_Click(object sender, EventArgs e)
+        {
+            AuraModule.Utils.locPlayer.FullResurrection();
         }
     }
 }

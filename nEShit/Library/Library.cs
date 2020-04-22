@@ -74,10 +74,10 @@ public unsafe static class ExecuteCB
         return true;
 
     }
-    public unsafe static bool InstallFishingCallback (IntPtr FishingCallback)
+    public unsafe static bool InstallFishingCallback (IntPtr FishingCallback, int Size)
     {
         if (FishingCallback == IntPtr.Zero) return false;
-        AddedHook(FishingCallback, 9, new CallbackNotifier.NotifyCallback(Callback.Fishing.Callback), true);
+        AddedHook(FishingCallback, Size, new CallbackNotifier.NotifyCallback(Callback.Fishing.Callback), true);
         Debug.WriteLine($"Hooking CB_Fishing 0x{FishingCallback.ToString("X")}");
         return true;
     }

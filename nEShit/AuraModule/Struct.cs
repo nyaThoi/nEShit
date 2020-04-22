@@ -553,7 +553,7 @@ namespace Struct
             //rt = (int)Memory.Assemble.InjectAndExecute(mnemonics);
             return rt == 1;
         }
-        public void UpdateEudemons(int sleepTime, bool localPlayerCheck = false)
+        public void UpdateEudemons(bool localPlayerCheck = false)
         {
             if (localPlayerCheck)
                 if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
@@ -589,7 +589,7 @@ namespace Struct
             WndPointer = intPtr;
         }
         public IntPtr WndPointer { get; set; }
-        private bool IsValid
+        public bool IsValid
         {
             get
             {

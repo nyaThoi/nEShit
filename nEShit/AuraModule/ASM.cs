@@ -47,7 +47,6 @@ namespace AuraModule
             return new Struct.InventoryBag(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag"));
 
         }
-
     }
     public class Utils
     {
@@ -69,6 +68,12 @@ namespace AuraModule
                     return locPlayer.GetEntityInfo.IsValid && locPlayer.GetModelInfo.IsValid && locPlayer.GetActorInfo.IsValid && locPlayer.GetEntityInfo.charName != "";
             }
             return false;
+        }
+        public static IntPtr GetEntityCollectionPtr()
+        {
+            if (MemoryStore.TARGETING_COLLECTIONS_BASE == IntPtr.Zero)
+                return IntPtr.Zero;
+            return Memory.Reader.Read<IntPtr>(MemoryStore.TARGETING_COLLECTIONS_BASE);
         }
         public static IntPtr GetInventoryAccessPtr()
         {
@@ -117,6 +122,7 @@ namespace AuraModule
                 }
                 return num;
             }
-        }
+        }        
     }
+
 }

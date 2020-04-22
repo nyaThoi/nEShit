@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuraModule
 {
+    #region Inventory
     public enum InventoryType { IT_BackPack = 0, IT_Equipment = 1, IT_Bank = 4, IT_BackPack_Bags = 5, IT_EudemonInventory = 6 };
 	// for IT_BackPack and IT_Bank
 	public enum InventoryBagType
@@ -33,6 +34,6 @@ namespace AuraModule
 		IBT_Bag20 = 20,
 		IBT_MAX = 20
 	};
-
+	#endregion
 
 }
