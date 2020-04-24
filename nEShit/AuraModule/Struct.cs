@@ -68,14 +68,9 @@ namespace Struct
         private IntPtr Resurrection(int ReviveType)
         {
 
-            string[] mnemonics = new string[]
-                {
-                        "use32",
-                        $"push {(int)ReviveType}",
-                        $"call {MemoryStore.PLAYER_Resurrection}",
-                        "add esp,4",
-                        "retn",
-                };
+            string[] mnemonics =
+                nMnemonics.localPlayer.Resurrection(ReviveType, MemoryStore.PLAYER_Resurrection);
+
             return Memory.Assemble.Execute<IntPtr>(mnemonics, "Revive");
             //return Memory.Assemble.InjectAndExecute(mnemonics);
 
@@ -87,17 +82,9 @@ namespace Struct
         }
         private IntPtr DoUIAction(int slotType)
         {
-            string[] mnemonics = new string[]
-            {
-                    "use32",
-                    "push 0",
-                    "push 0",
-                    $"push {slotType.ToString("D")}",
+            string[] mnemonics =
+                nMnemonics.localPlayer.DoUIAction(slotType, MemoryStore.PLAYER_DoUIAction);
 
-                    $"call {MemoryStore.PLAYER_DoUIAction}",
-                    "add esp, 0xC",
-                    "retn"
-            };
             return Memory.Assemble.Execute<IntPtr>(mnemonics, "DoUIAction");
             //return Memory.Assemble.InjectAndExecute(mnemonics);
 
@@ -437,22 +424,8 @@ namespace Struct
         {
             if (slotID < 0 || slotID > 3) 
                 return new Struct.Eudemon(IntPtr.Zero);
-            string[] mnemonics = new string[]
- {
-                    "use32",
-                    $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
-                    "test eax, eax",
-                    "je .out",
-                    "mov ecx, eax",
-                    "xor eax, eax",
-                    $"call {MemoryStore.GET_LOCAL_PLAYER}",
-                    "je .out",
-                    $"push {(int)slotID}",
-                    "mov ecx, eax",
-                    $"call {MemoryStore.EUDEMON_GETEUDEMON_FUNCTION}",
-                    ".out:",
-                    "retn"
- };
+            string[] mnemonics =
+                nMnemonics.eudemon.GetEudemonBySlot(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER, slotID, MemoryStore.EUDEMON_GETEUDEMON_FUNCTION);
 
             return new Struct.Eudemon(Memory.Assemble.Execute<IntPtr>(mnemonics, "Eudemon - GetEudemonBySlot"));
             //return new Struct.Eudemon(Memory.Assemble.InjectAndExecute(mnemonics));
@@ -483,20 +456,9 @@ namespace Struct
                     Console.WriteLine($"[EAL]: Retrieving object from eidolon at slot {slotID + 1}");
                     break;
             }
-            string[] mnemonics = new string[]
-        {
-                    "use32",
-                    $"mov eax, {eudemon.Pointer}",
-                    "mov eax, [eax]",
-                    "push 0",
-                    $"push {action.ToString("D")}",
-                    $"push {arg1}",
-                    "push eax",
+            string[] mnemonics =
+                nMnemonics.eudemon.TryEudemonAction(eudemon.Pointer, (int)action, arg1, MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION);
 
-                    $"call {MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION}",
-                    "add esp, 10h",
-                    "retn"
-        };
             Memory.Assemble.Execute<IntPtr>(mnemonics, "Eudemon - TryEudemonAction");
             //Memory.Assemble.InjectAndExecute(mnemonics);
             return true;
@@ -504,24 +466,9 @@ namespace Struct
         private bool IsEudemonMeditating(int slotID)
         {
             int rt = 0;
-            string[] mnemonics = new string[]
-                {
-                "use32",
-                $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
-                "test eax, eax",
-                "je @out",
-                "mov ecx, eax",
-                "xor eax, eax",
-                $"call {MemoryStore.GET_LOCAL_PLAYER}",
-                "je @out",
-                $"push {(int)slotID}",
-                "mov ecx, eax",
-                $"call {MemoryStore.EUDEMON_ISMEDITATING_FUNCTION}",
-                "test eax, eax",
-                "movzx eax, al",
-                "@out:",
-                "retn"
-                };
+            string[] mnemonics =
+                nMnemonics.eudemon.IsEudemonMeditating(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER, slotID, MemoryStore.EUDEMON_ISMEDITATING_FUNCTION);
+
             rt = Memory.Assemble.Execute<int>(mnemonics, "Eudemon - IsEudemonMeditating");
             //rt = (int)Memory.Assemble.InjectAndExecute(mnemonics);
             return rt == 1;
@@ -529,26 +476,9 @@ namespace Struct
         private bool HasEudemonGift(int slotID)
         {
             int rt = 0;
-            string[] mnemonics = new string[]
-            {
-                "use32",
-                /*get LocalPlayer*/
-                $"mov eax, [{MemoryStore.TARGETING_COLLECTIONS_BASE}]",
-                "test eax, eax",
-                "je @out",
-                "mov ecx, eax",
-                "xor eax, eax",
-                $"call {MemoryStore.GET_LOCAL_PLAYER}",
-                "je @out",
-                /*func*/
-                $"push {(int)slotID}",
-                "mov ecx, eax",
-                $"call {MemoryStore.EUDEMON_HASGIFT_FUNCTION}",
-                "test eax, eax",
-                "movzx eax, al",
-                "@out:",
-                "retn"
-            };
+            string[] mnemonics =
+                nMnemonics.eudemon.HasEudemonGift(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER, slotID, MemoryStore.EUDEMON_HASGIFT_FUNCTION);
+
             rt = Memory.Assemble.Execute<int>(mnemonics, "Eudemon - HasEudemonGift");
             //rt = (int)Memory.Assemble.InjectAndExecute(mnemonics);
             return rt == 1;

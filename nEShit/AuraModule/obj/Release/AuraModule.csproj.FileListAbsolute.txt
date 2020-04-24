@@ -12,3 +12,17 @@ C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\obj\Release\AuraModu
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csproj.CopyComplete
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\obj\Release\AuraModule.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\AuraModule\obj\Release\AuraModule.pdb
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csprojAssemblyReference.cache
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.Properties.Resources.resources
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csproj.GenerateResource.cache
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll.config
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\AuraModule.dll
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\AuraModule.pdb
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\Library.dll
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\nMnemonics.dll
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\MyMemory-x86.dll
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\Library.pdb
+E:\VS\nEShit\nEShit\AuraModule\bin\Release\Library.dll.config
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.csproj.CopyComplete
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.dll
+E:\VS\nEShit\nEShit\AuraModule\obj\Release\AuraModule.pdb

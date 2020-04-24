@@ -15,16 +15,8 @@ namespace AuraModule
                 return new Struct.Entity(IntPtr.Zero);
 
             string[] mnemonics =
-    {
-                "use32",
-                $"mov eax,{MemoryStore.TARGETING_COLLECTIONS_BASE}",
-                "mov ecx, [ds:eax]",
-                "test ecx,ecx",
-                "jz .Finnish",
-                $"call {MemoryStore.GET_LOCAL_PLAYER}",
-                ".Finnish:",
-                "retn",
-            };
+                nMnemonics.localPlayer.GetLocalPlayer(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER);
+
 
             return new Struct.Entity(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer"));
             //return new Struct.Entity(Memory.Assemble.InjectAndExecute(mnemonics));
@@ -35,15 +27,9 @@ namespace AuraModule
             IntPtr thisPtr = Utils.GetInventoryAccessPtr();
             if (thisPtr == IntPtr.Zero) return new Struct.InventoryBag(IntPtr.Zero);
 
-            string[] mnemonics = new string[]
-{
-                "use32",
-                $"mov ecx, {thisPtr}",
-                $"push {bagId}",
-                $"push {(int)inventoryType}",
-                $"call {MemoryStore.INVENTORY_ACCESS_FUNCTION}",
-                "retn"
-};
+            string[] mnemonics = 
+                nMnemonics.inventory.GetInventoryBag(thisPtr,MemoryStore.INVENTORY_ACCESS_FUNCTION,(int)bagId,(int)inventoryType);
+
             return new Struct.InventoryBag(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag"));
 
         }
