@@ -578,6 +578,28 @@ namespace Struct
             if (!IsValid) return;
             currentLine = blueCenterValue;
         }
+        private void SetNextState()
+        {
+            //Check FishingWnd is Valid
+            if (!IsValid)
+                return;
+
+            //Create AllocateMemory
+            IntPtr AllocateMemory = Memory.Allocator.Allocate(32);
+
+            //Check AllocteMemory if null or zero return
+            if (AllocateMemory == null || AllocateMemory == IntPtr.Zero)
+                return;
+            string[] mnemonics =
+                nMnemonics.fishing.SetNextState(AllocateMemory, WndPointer, MemoryStore.FISHING_SetNextState);
+
+            //Part of execute mnemonics
+            Memory.Assemble.Execute<IntPtr>(mnemonics, "SetNextState");
+
+            //Dispose Allocate Memory
+            if(AllocateMemory != IntPtr.Zero)
+                Memory.Allocator.DisposeAlloc(AllocateMemory);
+        }
     }
 
     #endregion

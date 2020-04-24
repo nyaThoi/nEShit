@@ -23,6 +23,8 @@ public class MemoryStore
 
     public static IntPtr PLAYER_Resurrection = IntPtr.Zero;
     public static IntPtr PLAYER_DoUIAction = IntPtr.Zero;
+
+    public static IntPtr FISHING_SetNextState = IntPtr.Zero;
 }
 public class Load_Pattern
 {
@@ -48,6 +50,7 @@ public class Load_Pattern
         MemoryStore.PLAYER_Resurrection = PatternManager.FindPatternAlain(gameproc, "e8 ? ? ? ? 83 c4 ? 83 7d ? ? 72 ? ff 75 ? e8 ? ? ? ? 83 c4 ? 8b 4d ? b0 ? 64 89 0d ? ? ? ? 8b e5 5d c2 ? ? 8d 49", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.PLAYER_DoUIAction = PatternManager.FindPatternAlain(gameproc, "e8 ? ? ? ? 83 c4 ? b0 ? c3 cc cc cc cc 55 8b ec 56", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
 
+        MemoryStore.FISHING_SetNextState = IntPtr.Zero;
     }
 
     public static bool RetrieveAddresses(uint gamePID)
@@ -87,7 +90,10 @@ public class Load_Pattern
             MemoryStore.CURRENT_MAP_BASE == IntPtr.Zero ||
 
             MemoryStore.PLAYER_DoUIAction == IntPtr.Zero ||
-            MemoryStore.PLAYER_Resurrection == IntPtr.Zero
+            MemoryStore.PLAYER_Resurrection == IntPtr.Zero //||
+
+            //MemoryStore.FISHING_SetNextState == IntPtr.Zero            
+
             )
             return true;
         else return false;
