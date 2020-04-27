@@ -567,6 +567,13 @@ namespace Struct
 
             }
         }
+        private AuraModule.FishingState fishingState
+        {
+            get
+            {
+                return (AuraModule.FishingState)Memory.Reader.Read<byte>(WndPointer + 0x210);
+            }
+        }
         public void setBlueRangeHack()
         {
             if (!IsValid) return;
@@ -599,6 +606,55 @@ namespace Struct
             //Dispose Allocate Memory
             if(AllocateMemory != IntPtr.Zero)
                 Memory.Allocator.DisposeAlloc(AllocateMemory);
+        }
+        private void ExitState()
+        {
+            //Check FishingWnd is Valid
+            if (!IsValid)
+                return;
+
+            //Create AllocateMemory
+            IntPtr AllocateMemory = Memory.Allocator.Allocate(32);
+
+            //Check AllocteMemory if null or zero return
+            if (AllocateMemory == null || AllocateMemory == IntPtr.Zero)
+                return;
+
+            string[] mnemonics =
+                nMnemonics.fishing.StopFishing(AllocateMemory, WndPointer, MemoryStore.FISHING_ExitState);
+
+            //Part of execute mnemonics
+            Memory.Assemble.Execute<IntPtr>(mnemonics, "SetNextState");
+
+            //Dispose Allocate Memory
+            if (AllocateMemory != IntPtr.Zero)
+                Memory.Allocator.DisposeAlloc(AllocateMemory);
+        }
+        public void Update()
+        {
+            if (!IsValid) return;
+            switch(fishingState)
+            {
+                case AuraModule.FishingState.Idle:
+                    SetNextState();
+
+                    break;
+                case AuraModule.FishingState.Baiting:
+
+                    return;
+                case AuraModule.FishingState.AutomaticFishing:
+                    SetNextState();
+
+                    return;
+                case AuraModule.FishingState.ActiveFishing:
+                    setBlueRangeHack();
+
+                    return;
+                case AuraModule.FishingState.EndAnimation:
+
+                    return;
+            }
+                
         }
     }
 

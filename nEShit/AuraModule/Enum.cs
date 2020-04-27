@@ -34,6 +34,16 @@ namespace AuraModule
 		IBT_Bag20 = 20,
 		IBT_MAX = 20
 	};
-	#endregion
+    #endregion
 
+    #region FISHING
+	public enum FishingState
+	{
+		Idle,
+		Baiting,
+		AutomaticFishing,
+		ActiveFishing,
+		EndAnimation
+	}
+    #endregion
 }

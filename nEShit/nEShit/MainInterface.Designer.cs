@@ -38,6 +38,8 @@
             this.speedhack = new System.Windows.Forms.CheckBox();
             this.btn_Resurrection = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.cb_fishHelper = new System.Windows.Forms.CheckBox();
+            this.cb_fishingAssist = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,11 +138,37 @@
             this.trackBar1.TabIndex = 7;
             this.trackBar1.Value = 15;
             // 
+            // cb_fishHelper
+            // 
+            this.cb_fishHelper.AutoSize = true;
+            this.cb_fishHelper.Checked = true;
+            this.cb_fishHelper.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_fishHelper.Location = new System.Drawing.Point(167, 35);
+            this.cb_fishHelper.Name = "cb_fishHelper";
+            this.cb_fishHelper.Size = new System.Drawing.Size(105, 17);
+            this.cb_fishHelper.TabIndex = 8;
+            this.cb_fishHelper.Text = "BlueRangeHack";
+            this.cb_fishHelper.UseVisualStyleBackColor = true;
+            // 
+            // cb_fishingAssist
+            // 
+            this.cb_fishingAssist.AutoSize = true;
+            this.cb_fishingAssist.Checked = true;
+            this.cb_fishingAssist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_fishingAssist.Location = new System.Drawing.Point(167, 58);
+            this.cb_fishingAssist.Name = "cb_fishingAssist";
+            this.cb_fishingAssist.Size = new System.Drawing.Size(86, 17);
+            this.cb_fishingAssist.TabIndex = 9;
+            this.cb_fishingAssist.Text = "FishingAssist";
+            this.cb_fishingAssist.UseVisualStyleBackColor = true;
+            // 
             // MainInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(223, 196);
+            this.ClientSize = new System.Drawing.Size(295, 196);
+            this.Controls.Add(this.cb_fishingAssist);
+            this.Controls.Add(this.cb_fishHelper);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.btn_Resurrection);
             this.Controls.Add(this.speedhack);
@@ -169,6 +197,8 @@
         private System.Windows.Forms.CheckBox speedhack;
         private System.Windows.Forms.Button btn_Resurrection;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.CheckBox cb_fishHelper;
+        private System.Windows.Forms.CheckBox cb_fishingAssist;
     }
 }
 

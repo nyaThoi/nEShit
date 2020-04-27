@@ -18,3 +18,13 @@ C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.cspro
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Debug\Library.pdb
 E:\Visual Studio\nEShit\nEShit\Library\obj\Debug\Library.csprojAssemblyReference.cache
+E:\VS\nEShit\nEShit\Library\bin\Debug\Library.dll.config
+E:\VS\nEShit\nEShit\Library\bin\Debug\Library.dll
+E:\VS\nEShit\nEShit\Library\bin\Debug\Library.pdb
+E:\VS\nEShit\nEShit\Library\bin\Debug\MyMemory-x86.dll
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.csprojAssemblyReference.cache
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.Properties.Resources.resources
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.GenerateResource.cache
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.dll
+E:\VS\nEShit\nEShit\Library\obj\Debug\Library.pdb

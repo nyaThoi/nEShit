@@ -38,7 +38,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nMnemonics">
+    <Reference Include="nMnemonics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>.\nMnemonics.dll</HintPath>
     </Reference>
     <Reference Include="System" />

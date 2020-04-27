@@ -46,7 +46,12 @@ namespace nEShit
                 WindowManager.GetEudemonExtendWindow.UpdateEudemons(false);
 
             // Auto Blue Range Hack assist for Fishing
-            WindowManager.GetFishingWindow.setBlueRangeHack();
+            if (cb_fishHelper.Checked)
+                WindowManager.GetFishingWindow.setBlueRangeHack();
+
+            //Fishing Assist
+            if (cb_fishingAssist.Checked)
+                WindowManager.GetFishingWindow.Update();
 
         }
 
