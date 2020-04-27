@@ -624,7 +624,7 @@ namespace Struct
                 nMnemonics.fishing.StopFishing(AllocateMemory, WndPointer, MemoryStore.FISHING_ExitState);
 
             //Part of execute mnemonics
-            Memory.Assemble.Execute<IntPtr>(mnemonics, "SetNextState");
+            Memory.Assemble.Execute<IntPtr>(mnemonics, "ExitState");
 
             //Dispose Allocate Memory
             if (AllocateMemory != IntPtr.Zero)
