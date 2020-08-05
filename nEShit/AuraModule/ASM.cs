@@ -68,7 +68,7 @@ namespace AuraModule
             IntPtr res = info.GetEntityInfo.inventoryPtr;
             return res;
         }
-        private static uint GetInventorySize()
+        public static uint GetInventorySize()
         {
             uint count = 0;
             for (uint i = 0; i <= (uint)InventoryBagType.IBT_MAX; ++i)

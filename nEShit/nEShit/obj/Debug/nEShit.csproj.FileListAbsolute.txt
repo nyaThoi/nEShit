@@ -51,4 +51,3 @@ E:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.GenerateResource.cache
 E:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CopyComplete
 E:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.exe
 E:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.pdb
-E:\VS\nEShit\nEShit\nEShit\bin\Debug\nMnemonics.pdb

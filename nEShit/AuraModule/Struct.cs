@@ -99,11 +99,12 @@ namespace Struct
         {
             if (IsValid && GetEntityInfo.IsValid && GetEntityInfo.MovementValue != 0)
             {
-                if (GetEntityInfo.MovementValue < val)
-                    GetEntityInfo.MovementValue = val;
-
                 if (GetModelInfo.IsMounted)
+                {
                     GetEntityInfo.MovementValue = val + 10;
+                }
+                else
+                    GetEntityInfo.MovementValue = val;
             }
             return GetEntityInfo.MovementValue;
         }
@@ -153,7 +154,7 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.ReadString(Pointer + 0x12C, Encoding.UTF7);
+                return Memory.Reader.ReadSTDString(Pointer + 0x128, Encoding.UTF7);
             } 
         }
         public uint fishingDurability

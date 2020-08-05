@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 public class MemoryStore
 {
     public static IntPtr GET_LOCAL_PLAYER = IntPtr.Zero;
@@ -92,9 +91,10 @@ public class Load_Pattern
             MemoryStore.CURRENT_MAP_BASE == IntPtr.Zero ||
 
             MemoryStore.PLAYER_DoUIAction == IntPtr.Zero ||
-            MemoryStore.PLAYER_Resurrection == IntPtr.Zero //||
+            MemoryStore.PLAYER_Resurrection == IntPtr.Zero ||
 
-            //MemoryStore.FISHING_SetNextState == IntPtr.Zero            
+            MemoryStore.FISHING_SetNextState == IntPtr.Zero ||
+            MemoryStore.FISHING_ExitState == IntPtr.Zero
 
             )
             return true;
