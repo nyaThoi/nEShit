@@ -230,7 +230,7 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<short>(Pointer + 0x8);
+                return Memory.Reader.Read<short>(Pointer + 0x6);
             }
         }
 

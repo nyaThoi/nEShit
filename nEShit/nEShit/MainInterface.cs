@@ -32,9 +32,8 @@ namespace nEShit
         {
             if (!cb_loop.Checked) return;
 
-            if (!AuraModule.Utils.IsInGame() || AuraModule.Utils.locPlayer.GetEntityInfo.level <= 1)
+            if (!AuraModule.Utils.IsInGame() || !(AuraModule.Utils.locPlayer.GetEntityInfo.level >= 1))
                 return;
-
             // Set Movement Value in Float
             if(speedhack.Checked)
                 AuraModule.Utils.locPlayer.SetMovementValue((float)trackBar1.Value);
