@@ -9,3 +9,14 @@ C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Release\Library.csp
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Release\Library.csproj.CopyComplete
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Release\Library.dll
 C:\Users\Tien\Source\Repos\nyaThoi\nEShit\nEShit\Library\obj\Release\Library.pdb
+D:\VS\nEShit\nEShit\Library\bin\Release\Library.dll.config
+D:\VS\nEShit\nEShit\Library\bin\Release\Library.dll
+D:\VS\nEShit\nEShit\Library\bin\Release\Library.pdb
+D:\VS\nEShit\nEShit\Library\bin\Release\MyMemory-x86.dll
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.csprojAssemblyReference.cache
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.Properties.Resources.resources
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.csproj.GenerateResource.cache
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.csproj.CoreCompileInputs.cache
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.csproj.CopyComplete
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.dll
+D:\VS\nEShit\nEShit\Library\obj\Release\Library.pdb

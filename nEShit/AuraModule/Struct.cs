@@ -154,7 +154,7 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.ReadSTDString(Pointer + 0x128, Encoding.UTF7);
+                return Memory.Reader.ReadSTDString(Pointer + 0x130, Encoding.UTF7);
             } 
         }
         public uint fishingDurability
