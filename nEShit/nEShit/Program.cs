@@ -27,6 +27,7 @@ namespace nEShit
                 {
                     MessageBox.Show("Pattern not found! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(0);
+
                 }
                 Hook.SetHook();
                 var handle = Pinvoke.GetConsoleWindow();
