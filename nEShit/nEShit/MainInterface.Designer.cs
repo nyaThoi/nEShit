@@ -40,6 +40,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.cb_fishHelper = new System.Windows.Forms.CheckBox();
             this.cb_fishingAssist = new System.Windows.Forms.CheckBox();
+            this.fishType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.cb_loop.AutoSize = true;
             this.cb_loop.Checked = true;
             this.cb_loop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_loop.Location = new System.Drawing.Point(167, 3);
+            this.cb_loop.Location = new System.Drawing.Point(12, 6);
             this.cb_loop.Name = "cb_loop";
             this.cb_loop.Size = new System.Drawing.Size(50, 17);
             this.cb_loop.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             // b_debug
             // 
-            this.b_debug.Location = new System.Drawing.Point(313, 31);
+            this.b_debug.Location = new System.Drawing.Point(368, 161);
             this.b_debug.Name = "b_debug";
             this.b_debug.Size = new System.Drawing.Size(75, 23);
             this.b_debug.TabIndex = 0;
@@ -74,7 +75,7 @@
             // 
             // btn_teleportInterface
             // 
-            this.btn_teleportInterface.Location = new System.Drawing.Point(9, 132);
+            this.btn_teleportInterface.Location = new System.Drawing.Point(9, 159);
             this.btn_teleportInterface.Name = "btn_teleportInterface";
             this.btn_teleportInterface.Size = new System.Drawing.Size(112, 23);
             this.btn_teleportInterface.TabIndex = 2;
@@ -87,7 +88,7 @@
             this.eal.AutoSize = true;
             this.eal.Checked = true;
             this.eal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.eal.Location = new System.Drawing.Point(12, 12);
+            this.eal.Location = new System.Drawing.Point(12, 29);
             this.eal.Name = "eal";
             this.eal.Size = new System.Drawing.Size(109, 17);
             this.eal.TabIndex = 3;
@@ -99,7 +100,7 @@
             this.resurrection.AutoSize = true;
             this.resurrection.Checked = true;
             this.resurrection.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.resurrection.Location = new System.Drawing.Point(12, 35);
+            this.resurrection.Location = new System.Drawing.Point(12, 52);
             this.resurrection.Name = "resurrection";
             this.resurrection.Size = new System.Drawing.Size(111, 17);
             this.resurrection.TabIndex = 4;
@@ -111,7 +112,7 @@
             this.speedhack.AutoSize = true;
             this.speedhack.Checked = true;
             this.speedhack.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.speedhack.Location = new System.Drawing.Point(12, 58);
+            this.speedhack.Location = new System.Drawing.Point(12, 75);
             this.speedhack.Name = "speedhack";
             this.speedhack.Size = new System.Drawing.Size(81, 17);
             this.speedhack.TabIndex = 5;
@@ -120,7 +121,7 @@
             // 
             // btn_Resurrection
             // 
-            this.btn_Resurrection.Location = new System.Drawing.Point(9, 161);
+            this.btn_Resurrection.Location = new System.Drawing.Point(9, 188);
             this.btn_Resurrection.Name = "btn_Resurrection";
             this.btn_Resurrection.Size = new System.Drawing.Size(112, 23);
             this.btn_Resurrection.TabIndex = 6;
@@ -130,7 +131,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 81);
+            this.trackBar1.Location = new System.Drawing.Point(12, 108);
             this.trackBar1.Maximum = 35;
             this.trackBar1.Minimum = 10;
             this.trackBar1.Name = "trackBar1";
@@ -143,7 +144,7 @@
             this.cb_fishHelper.AutoSize = true;
             this.cb_fishHelper.Checked = true;
             this.cb_fishHelper.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_fishHelper.Location = new System.Drawing.Point(167, 35);
+            this.cb_fishHelper.Location = new System.Drawing.Point(167, 29);
             this.cb_fishHelper.Name = "cb_fishHelper";
             this.cb_fishHelper.Size = new System.Drawing.Size(105, 17);
             this.cb_fishHelper.TabIndex = 8;
@@ -155,18 +156,28 @@
             this.cb_fishingAssist.AutoSize = true;
             this.cb_fishingAssist.Checked = true;
             this.cb_fishingAssist.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_fishingAssist.Location = new System.Drawing.Point(167, 58);
+            this.cb_fishingAssist.Location = new System.Drawing.Point(167, 52);
             this.cb_fishingAssist.Name = "cb_fishingAssist";
             this.cb_fishingAssist.Size = new System.Drawing.Size(86, 17);
             this.cb_fishingAssist.TabIndex = 9;
             this.cb_fishingAssist.Text = "FishingAssist";
             this.cb_fishingAssist.UseVisualStyleBackColor = true;
             // 
+            // fishType
+            // 
+            this.fishType.AutoSize = true;
+            this.fishType.Location = new System.Drawing.Point(164, 6);
+            this.fishType.Name = "fishType";
+            this.fishType.Size = new System.Drawing.Size(50, 13);
+            this.fishType.TabIndex = 10;
+            this.fishType.Text = "FishType";
+            // 
             // MainInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 196);
+            this.ClientSize = new System.Drawing.Size(288, 219);
+            this.Controls.Add(this.fishType);
             this.Controls.Add(this.cb_fishingAssist);
             this.Controls.Add(this.cb_fishHelper);
             this.Controls.Add(this.trackBar1);
@@ -199,6 +210,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.CheckBox cb_fishHelper;
         private System.Windows.Forms.CheckBox cb_fishingAssist;
+        private System.Windows.Forms.Label fishType;
     }
 }
 

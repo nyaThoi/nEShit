@@ -53,6 +53,9 @@ namespace nEShit
             if (cb_fishingAssist.Checked)
                 WindowManager.GetFishingWindow.Update();
 
+            AuraModule.Fishing.GetUnwandtedFishType();
+            fishType.Text = AuraModule.Fishing.FishTypeSTR;
+
         }
 
         private void cb_loop_CheckedChanged(object sender, EventArgs e)

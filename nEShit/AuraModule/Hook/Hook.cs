@@ -14,11 +14,11 @@ public class Hook
             MessageBox.Show("Failed to create and apply JmpHook", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Environment.Exit(0);
         }
-        //if (!ExecuteCB.InstallFishingCallback(MemoryStore.DETOUR_FISHING_CALLBACK, 9))
-        //{
-        //    MessageBox.Show("Failed to create and apply JmpHook\nFishing_CB", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    Environment.Exit(0);
-        //}
+        if (!ExecuteCB.InstallFishingCallback(MemoryStore.DETOUR_FISHING_CALLBACK, 9))
+        {
+            MessageBox.Show("Failed to create and apply JmpHook\nFishing_CB", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Environment.Exit(0);
+        }
     }
 
     public static void UnsetHook()

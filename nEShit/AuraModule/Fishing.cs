@@ -41,6 +41,25 @@ namespace AuraModule
         public static bool UnwandtedFishType_Orange { get; private set; }
         public static bool UnwandtedFishType_MiracleCube { get; private set; }
         public static bool UnwandtedFishType_FishKinge { get; private set; }
+        public static string FishTypeSTR
+        {
+            get
+            {
+                string str = "FishType: ...";
+                if (UnwandtedFishType_White)
+                    str = "Fishtype: White Fish"; 
+                if (UnwandtedFishType_Green)
+                    str = "Fishtype: Green Fish";
+                if (UnwandtedFishType_Orange)
+                    str = "Fishtype: Orange Fish";
+                if (UnwandtedFishType_MiracleCube)
+                    str = "Fishtype: Miracle Cube";
+                if (UnwandtedFishType_FishKinge)
+                    str = "Fishtype: Fish King";
+                return str;
+            }
+        }
+        
     }
 
 }

@@ -107,10 +107,10 @@ public class Callback
     {
         public unsafe static void Callback(CallbackNotifier.NotifyArgs  notifyArgs)
         {
-            IntPtr pointer = Memory.Reader.Read<IntPtr>(notifyArgs.Registers.Esp + 4);
+            IntPtr pointer = Memory.Reader.Read<IntPtr>(notifyArgs.Registers.Esp + 0x4);
             if (Memory.Reader.Read<short>(pointer + 20) == 2)
             {
-                short num = Memory.Reader.Read<short>(pointer + 24);
+                short num = Memory.Reader.Read<short>(pointer + 0x18);
                 FishType type;
                 string str;
                 switch (num)

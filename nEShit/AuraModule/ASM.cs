@@ -51,7 +51,7 @@ namespace AuraModule
             {
                 locPlayer = ASM.GetLocalPlayer();
                 if (locPlayer.IsValid)
-                    return locPlayer.GetEntityInfo.IsValid && locPlayer.GetModelInfo.IsValid && locPlayer.GetActorInfo.IsValid && locPlayer.GetEntityInfo.charName != "";
+                    return locPlayer.GetEntityInfo.IsValid && locPlayer.GetModelInfo.IsValid && locPlayer.GetActorInfo.IsValid && locPlayer.GetEntityInfo.charName != "" && locPlayer.GetEntityInfo.charName.Length >= 2 /*Min Charactername Length check*/;
             }
             return false;
         }

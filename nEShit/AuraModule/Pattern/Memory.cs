@@ -32,8 +32,7 @@ public class Load_Pattern
     {
         System.Diagnostics.ProcessModule gameproc = Minimem.FindProcessModule("game.bin", false);
         MemoryStore.DETOUR_MAIN_LOOP_OFFSET = PatternManager.FindPattern(gameproc, "55 8b ec 83 ec ? 80 3d ? ? ? ? ? 74 ? 8b 0d");
-        //Add the Fishing CB Pattern here
-        MemoryStore.DETOUR_FISHING_CALLBACK = IntPtr.Zero;
+        MemoryStore.DETOUR_FISHING_CALLBACK = PatternManager.FindPattern(gameproc, "55 8b ec 64 a1 ? ? ? ? 6a ? 68 ? ? ? ? 50 64 89 25 ? ? ? ? 81 ec ? ? ? ? 53 56 57 8b 7d ? 85 ff 0f 84 ? ? ? ? 8b 0d");
 
         MemoryStore.GET_LOCAL_PLAYER = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 8B F8 0F BF 86 ? ? ? ?", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.INVENTORY_ACCESS_FUNCTION = PatternManager.FindPattern(gameproc, "55 8B EC 8B 55 08 33 C0 83 FA 0D");
@@ -78,7 +77,7 @@ public class Load_Pattern
         if
             (
             MemoryStore.DETOUR_MAIN_LOOP_OFFSET == IntPtr.Zero ||
-            //MemoryStore.DETOUR_FISHING_CALLBACK == IntPtr.Zero ||
+            MemoryStore.DETOUR_FISHING_CALLBACK == IntPtr.Zero ||
             MemoryStore.GET_LOCAL_PLAYER == IntPtr.Zero ||
             MemoryStore.INVENTORY_ACCESS_FUNCTION == IntPtr.Zero ||
             MemoryStore.TARGETING_COLLECTIONS_BASE == IntPtr.Zero ||
