@@ -17,7 +17,10 @@ namespace AuraModule
             string[] mnemonics =
                 nMnemonics.localPlayer.GetLocalPlayer(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER);
 
-
+#if DEBUG
+            IntPtr DebugPtr = Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer");
+            Console.WriteLine($"GetLocalPlayer 0x{DebugPtr.ToString("X")}\n");
+#endif
             return new Struct.Entity(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer"));
             //return new Struct.Entity(Memory.Assemble.InjectAndExecute(mnemonics));
 
@@ -27,8 +30,12 @@ namespace AuraModule
             IntPtr thisPtr = Utils.GetInventoryAccessPtr();
             if (thisPtr == IntPtr.Zero) return new Struct.InventoryBag(IntPtr.Zero);
 
-            string[] mnemonics = 
-                nMnemonics.inventory.GetInventoryBag(thisPtr,MemoryStore.INVENTORY_ACCESS_FUNCTION,(int)bagId,(int)inventoryType);
+            string[] mnemonics =
+                nMnemonics.inventory.GetInventoryBag(thisPtr, MemoryStore.INVENTORY_ACCESS_FUNCTION, (int)bagId, (int)inventoryType);
+#if DEBUG
+            IntPtr DebugPtr = Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag");
+            Console.WriteLine($"GetInventoryBag 0x{DebugPtr.ToString("X")}\n");
+#endif
 
             return new Struct.InventoryBag(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag"));
 

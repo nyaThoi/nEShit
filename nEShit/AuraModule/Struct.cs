@@ -127,6 +127,8 @@ namespace Struct
         {
             get
             {
+                //current 0x8
+                //max on 0x24
                 return Memory.Reader.Read<uint>(Pointer + 0x8);
             }
         }
@@ -154,21 +156,21 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.ReadSTDString(Pointer + 0x130, Encoding.UTF7);
+                return Memory.Reader.ReadSTDString(Pointer + 0x138, Encoding.UTF7);
             } 
         }
         public uint fishingDurability
         {
             get
             {
-                return Memory.Reader.Read<uint>(Pointer + 0xEC);
+                return Memory.Reader.Read<uint>(Pointer + 0xF8);
             }
         }
         public IntPtr inventoryPtr
         {
             get
             {
-                return Memory.Reader.Read<IntPtr>(Pointer + 0x540);
+                return Memory.Reader.Read<IntPtr>(Pointer + 0x574);
             }
         }
 
@@ -658,6 +660,116 @@ namespace Struct
                 
         }
     }
+    public class InventoryWindow
+    {
+        public InventoryWindow(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+    }
+    public class CookingWindow
+    {
+        public CookingWindow(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        public short val
+        {
+            get
+            {
+                return Memory.Reader.Read<short>(Pointer + 0x24A);
+            }
+        }
+        public bool valid
+        {
+            get
+            {
+                return Memory.Reader.Read<uint>(Pointer + 0x22C) > 0u;
+            }
+        }
+        public IntPtr Ptr
+        {
+            get
+            {
+                return Memory.Reader.Read<IntPtr>(Pointer + 0x1DC);
+            }
+        }
+        public IntPtr IngredientPtr
+        {
+            get
+            {
+                return Memory.Reader.Read<IntPtr>(Memory.Reader.Read<IntPtr>(Pointer) + 0x30);
+            }
+        }
+
+        private bool state = false;
+        private int quality = 1;
+
+        private IngredientStruct GetIngredientStruct(int val, int val1)
+        {
+            if (!IsValid || IngredientPtr == IntPtr.Zero) return new IngredientStruct(IntPtr.Zero);
+
+            string[] mnemonics =
+            nMnemonics.cooking.GetWrongIngredient(Pointer, IngredientPtr, val, val1);
+            return new Struct.IngredientStruct(Memory.Assemble.Execute<IntPtr>(mnemonics, "Cooking - GetIngredientStruct"));
+
+        }
+
+    public void UpdateCooking()
+        {
+            if (!IsValid)
+                return;
+            if(!state && IsValid && valid)
+            {
+                state = true;
+
+            }
+        }
+    }
+
+    #endregion
+
+    #region Cooking Stuff
+    public class IngredientStruct
+    {
+        public IngredientStruct(IntPtr intPtr)
+        {
+            Pointer = intPtr;
+        }
+        public IntPtr Pointer { get; set; }
+        public bool IsValid
+        {
+            get
+            {
+                return Pointer != IntPtr.Zero;
+            }
+        }
+        public string Str
+        {
+            get
+            {
+                return Memory.Reader.ReadString(Pointer + 0x1C, Encoding.Unicode);
+            }
+        }
+
+    }
+
 
     #endregion
 }

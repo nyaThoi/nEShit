@@ -60,19 +60,19 @@ public class Load_Pattern
         Attach.OpenProcess();
         SetPatterns();//Load Patterns
 #if DEBUG
-        Debug.WriteLine($"----- Debug Pattern -----");
-        Debug.WriteLine($"DETOUR_MAIN_LOOP_OFFSET 0x{MemoryStore.DETOUR_MAIN_LOOP_OFFSET.ToString("X")}\n");
-        Debug.WriteLine($"GET_LOCAL_PLAYER 0x{MemoryStore.GET_LOCAL_PLAYER.ToString("X")}\n");
-        Debug.WriteLine($"INVENTORY_ACCESS_FUNCTION 0x{MemoryStore.INVENTORY_ACCESS_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"TARGETING_COLLECTIONS_BASE 0x{MemoryStore.TARGETING_COLLECTIONS_BASE.ToString("X")}\n");
-        Debug.WriteLine($"WND_INTERFACE_BASE 0x{MemoryStore.WND_INTERFACE_BASE.ToString("X")}\n");
-        Debug.WriteLine($"EUDEMON_GETEUDEMON_FUNCTION 0x{MemoryStore.EUDEMON_GETEUDEMON_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"EUDEMON_SENDCOMMAND_FUNCTION 0x{MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"EUDEMON_SELECT_FUNCTION 0x{MemoryStore.EUDEMON_SELECT_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"EUDEMON_ISMEDITATING_FUNCTION 0x{MemoryStore.EUDEMON_ISMEDITATING_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"EUDEMON_HASGIFT_FUNCTION 0x{MemoryStore.EUDEMON_HASGIFT_FUNCTION.ToString("X")}\n");
-        Debug.WriteLine($"CURRENT_MAP_BASE 0x{MemoryStore.CURRENT_MAP_BASE.ToString("X")}\n");
-        Debug.WriteLine($"----- End -----");
+        Console.WriteLine($"----- Debug Pattern -----");
+        Console.WriteLine($"DETOUR_MAIN_LOOP_OFFSET 0x{MemoryStore.DETOUR_MAIN_LOOP_OFFSET.ToString("X")}\n");
+        Console.WriteLine($"GET_LOCAL_PLAYER 0x{MemoryStore.GET_LOCAL_PLAYER.ToString("X")}\n");
+        Console.WriteLine($"INVENTORY_ACCESS_FUNCTION 0x{MemoryStore.INVENTORY_ACCESS_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"TARGETING_COLLECTIONS_BASE 0x{MemoryStore.TARGETING_COLLECTIONS_BASE.ToString("X")}\n");
+        Console.WriteLine($"WND_INTERFACE_BASE 0x{MemoryStore.WND_INTERFACE_BASE.ToString("X")}\n");
+        Console.WriteLine($"EUDEMON_GETEUDEMON_FUNCTION 0x{MemoryStore.EUDEMON_GETEUDEMON_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"EUDEMON_SENDCOMMAND_FUNCTION 0x{MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"EUDEMON_SELECT_FUNCTION 0x{MemoryStore.EUDEMON_SELECT_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"EUDEMON_ISMEDITATING_FUNCTION 0x{MemoryStore.EUDEMON_ISMEDITATING_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"EUDEMON_HASGIFT_FUNCTION 0x{MemoryStore.EUDEMON_HASGIFT_FUNCTION.ToString("X")}\n");
+        Console.WriteLine($"CURRENT_MAP_BASE 0x{MemoryStore.CURRENT_MAP_BASE.ToString("X")}\n");
+        Console.WriteLine($"----- End -----");
 #endif
         if
             (

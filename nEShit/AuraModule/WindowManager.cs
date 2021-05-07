@@ -94,6 +94,20 @@ public class WindowManager
             return new Struct.FishingWindow(WindowManager.GetWindowByName("FishingWnd").Pointer);
         }
     }
+    public static Struct.InventoryWindow GetInventoryWindow
+    {
+        get
+        {
+            return new Struct.InventoryWindow(WindowManager.GetWindowByName("InventoryWnd").Pointer);
+        }
+    }
+    public static Struct.CookingWindow GetCookingWindow
+    {
+        get
+        {
+            return new Struct.CookingWindow(WindowManager.GetWindowByName("CookingWnd").Pointer);
+        }
+    }
 
 }
 
