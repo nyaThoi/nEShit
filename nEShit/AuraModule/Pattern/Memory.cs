@@ -30,7 +30,11 @@ public class Load_Pattern
 {
     public static void SetPatterns()
     {
-        System.Diagnostics.ProcessModule gameproc = Minimem.FindProcessModule("game.bin", false);
+        string procname = "game.bin";
+        if (SteamClient)
+            procname = "Launcher.exe";
+
+        System.Diagnostics.ProcessModule gameproc = Minimem.FindProcessModule(procname, false);
         MemoryStore.DETOUR_MAIN_LOOP_OFFSET = PatternManager.FindPattern(gameproc, "55 8b ec 83 ec ? 80 3d ? ? ? ? ? 74 ? 8b 0d");
         MemoryStore.DETOUR_FISHING_CALLBACK = PatternManager.FindPattern(gameproc, "55 8b ec 64 a1 ? ? ? ? 6a ? 68 ? ? ? ? 50 64 89 25 ? ? ? ? 81 ec ? ? ? ? 53 56 57 8b 7d ? 85 ff 0f 84 ? ? ? ? 8b 0d");
 
@@ -52,6 +56,8 @@ public class Load_Pattern
         MemoryStore.FISHING_SetNextState = PatternManager.FindPattern(gameproc, "55 8b ec 64 a1 ? ? ? ? 6a ? 68 ? ? ? ? 50 8b 45 ? 64 89 25 ? ? ? ? 83 ec ? 83 78 ? ? 56 8b f1 0f 85 ? ? ? ? 0f b7 86 ? ? ? ? 83 e8");
         MemoryStore.FISHING_ExitState = PatternManager.FindPattern(gameproc, "55 8b ec 6a ? 68 ? ? ? ? 64 a1 ? ? ? ? 50 64 89 25 ? ? ? ? 51 56 8b f1 89 75 ? c7 06 ? ? ? ? ff b6 ? ? ? ? c7 45 ? ? ? ? ? e8 ? ? ? ? 8b 8e ? ? ? ? 83 c4 ? 85 c9 74 ? 8b 01 6a ? ff 10 c7 86 ? ? ? ? ? ? ? ? 8b ce e8");
     }
+
+    public static bool SteamClient = false;
 
     public static bool RetrieveAddresses(uint gamePID)
     {

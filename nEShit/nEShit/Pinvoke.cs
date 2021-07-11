@@ -45,36 +45,27 @@ class Pinvoke
         }
     }
 
-    InterObject SelectedProcessInfo = new InterObject();
+    public static InterObject SelectedProcessInfo = new InterObject();
 
-    internal static string ProcessName = "game";
     internal static void GetCurrentProccess()
     {
         Process[] plist = Process.GetProcesses();
 
         foreach (var p in plist)
         {
-            if (p.ProcessName.ToLower().Contains("game.bin"))
+            if (p.ProcessName.Contains("game.bin"))
             {
-                InterObject x = new InterObject();
-                x.pid = p.Id;
-                x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"{x}");
+                SelectedProcessInfo.pid = p.Id;
+                SelectedProcessInfo.windowname = p.MainWindowTitle;
+                Console.WriteLine($"{SelectedProcessInfo}");
             }
-            if (p.ProcessName.ToLower().Contains("client.exe"))
+            if (p.ProcessName.Contains("Launcher"))
             {
-                InterObject x = new InterObject();
-                x.pid = p.Id;
-                x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"{x}");
+                SelectedProcessInfo.pid = p.Id;
+                SelectedProcessInfo.windowname = p.MainWindowTitle;
+                Console.WriteLine($"{SelectedProcessInfo}");
             }
-            if (p.ProcessName.ToLower().Contains("Launcher.exe"))
-            {
-                InterObject x = new InterObject();
-                x.pid = p.Id;
-                x.windowname = p.MainWindowTitle;
-                Console.WriteLine($"{x}");
-            }
+
         }
     }
 
