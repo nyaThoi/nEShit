@@ -28,3 +28,13 @@ E:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
 E:\VS\nEShit\nEShit\Library\obj\Debug\Library.dll
 E:\VS\nEShit\nEShit\Library\obj\Debug\Library.pdb
 E:\VS\nEShit\nEShit\Library\obj\Debug\Library.csprojAssemblyReference.cache
+D:\VS\nEShit\nEShit\Library\bin\Debug\Library.dll.config
+D:\VS\nEShit\nEShit\Library\bin\Debug\Library.dll
+D:\VS\nEShit\nEShit\Library\bin\Debug\Library.pdb
+D:\VS\nEShit\nEShit\Library\bin\Debug\MyMemory-x86.dll
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.Properties.Resources.resources
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.GenerateResource.cache
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.dll
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.pdb
