@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "57fd439e-9fb7-4afe-83d6-a73756931da7": {
+      "ProjectGuid": "57fd439e-9fb7-4afe-83d6-a73756931da7",
+      "DisplayName": "AuraModule",
+      "ColorIndex": 0
+    },
+    "481139af-7a51-4eb4-aab6-01d293113430": {
+      "ProjectGuid": "481139af-7a51-4eb4-aab6-01d293113430",
+      "DisplayName": "Library",
+      "ColorIndex": 1
+    },
+    "c3fd1ece-6404-4bf5-a2b4-89e83817bdb8": {
+      "ProjectGuid": "c3fd1ece-6404-4bf5-a2b4-89e83817bdb8",
+      "DisplayName": "nEShit",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -24,14 +24,15 @@ namespace nEShit
             {
                 Load_Pattern.SteamClient = true;
                 Console.WriteLine($"Launcher.exe Client used");
-            } else Console.WriteLine($"Default, game.bin Client used.");
+            }
+            else Console.WriteLine($"Default, game.bin Client used.");
 
             Pinvoke.GetCurrentProccess();
             int.TryParse(Console.ReadLine(), out int msg);
             if (msg != 0)
             {
                 if (!(Pinvoke.SelectedProcessInfo.pid == msg)) return;
-
+                Pinvoke.InjectPID = (uint)msg;
                 if (Load_Pattern.RetrieveAddresses((uint)msg))
                 {
                     MessageBox.Show("Pattern not found! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

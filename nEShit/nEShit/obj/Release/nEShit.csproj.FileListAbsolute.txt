@@ -53,3 +53,4 @@ D:\VS\nEShit\nEShit\nEShit\obj\Release\nEShit.csproj.CoreCompileInputs.cache
 D:\VS\nEShit\nEShit\nEShit\obj\Release\nEShit.csproj.CopyComplete
 D:\VS\nEShit\nEShit\nEShit\obj\Release\nEShit.exe
 D:\VS\nEShit\nEShit\nEShit\obj\Release\nEShit.pdb
+D:\VS\nEShit\nEShit\nEShit\obj\Release\nEShit.csproj.SuggestedBindingRedirects.cache

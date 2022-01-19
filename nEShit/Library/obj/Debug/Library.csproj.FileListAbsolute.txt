@@ -38,3 +38,4 @@ D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.CopyComplete
 D:\VS\nEShit\nEShit\Library\obj\Debug\Library.dll
 D:\VS\nEShit\nEShit\Library\obj\Debug\Library.pdb
+D:\VS\nEShit\nEShit\Library\obj\Debug\Library.csproj.AssemblyReference.cache

@@ -44,11 +44,9 @@ namespace nEShit
             // Auto Eidolon Link without Inventory Check
             if (eal.Checked)
                 WindowManager.GetEudemonExtendWindow.UpdateEudemons(false);
-
             // Auto Blue Range Hack assist for Fishing
             if (cb_fishHelper.Checked)
                 WindowManager.GetFishingWindow.setBlueRangeHack();
-
             //Fishing Assist
             if (cb_fishingAssist.Checked)
                 WindowManager.GetFishingWindow.Update();
@@ -56,8 +54,10 @@ namespace nEShit
             AuraModule.Fishing.GetUnwandtedFishType();
             fishType.Text = AuraModule.Fishing.FishTypeSTR;
 
-        }
+            //HotKey Feature
+            HotKeyFeature();
 
+        }
         private void cb_loop_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_loop.Checked)
@@ -73,6 +73,15 @@ namespace nEShit
         private void btn_Resurrection_Click(object sender, EventArgs e)
         {
             AuraModule.Utils.locPlayer.FullResurrection();
+        }
+
+        private void HotKeyFeature()
+        {
+            if (Pinvoke.ForegroundWindow())
+            {
+                if(Hotkey.F10KeyPress())
+                    AuraModule.Utils.locPlayer.TeleportInterface();
+            }
         }
     }
 }

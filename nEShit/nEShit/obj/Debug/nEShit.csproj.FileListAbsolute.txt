@@ -70,3 +70,4 @@ D:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CoreCompileInputs.cache
 D:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.CopyComplete
 D:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.exe
 D:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.pdb
+D:\VS\nEShit\nEShit\nEShit\obj\Debug\nEShit.csproj.SuggestedBindingRedirects.cache

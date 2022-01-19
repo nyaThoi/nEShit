@@ -10,9 +10,13 @@ using System.Threading.Tasks;
 class Pinvoke
 {
     [DllImport("kernel32.dll")]
-    internal static extern IntPtr GetConsoleWindow();
+    internal static extern uint GetConsoleWindow();
     [DllImport("user32.dll")]
     internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+    [DllImport("user32.dll")]
+    internal static extern IntPtr GetForegroundWindow();
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
     const int SW_HIDE = 0;
     const int SW_SHOW = 5;
@@ -44,9 +48,7 @@ class Pinvoke
             return $"[{pid}] [{outPut}]";
         }
     }
-
     public static InterObject SelectedProcessInfo = new InterObject();
-
     internal static void GetCurrentProccess()
     {
         Process[] plist = Process.GetProcesses();
@@ -68,5 +70,18 @@ class Pinvoke
 
         }
     }
+    public static uint InjectPID = 0;
+    public static bool ForegroundWindow()
+    {
+        bool cstate = false;
+        uint processID = 0;
+        uint threadID = Pinvoke.GetWindowThreadProcessId(Pinvoke.GetForegroundWindow(), out processID);
 
+        if (threadID != 0 && processID != 0)
+        {
+            if (processID == InjectPID)
+                cstate = true;
+        }
+        return cstate;
+    }
 }
