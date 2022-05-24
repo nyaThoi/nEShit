@@ -79,8 +79,10 @@ namespace nEShit
         {
             if (Pinvoke.ForegroundWindow())
             {
-                if(Hotkey.F10KeyPress())
+                if(Hotkey.KeyPress(System.Windows.Forms.Keys.F10))
                     AuraModule.Utils.locPlayer.TeleportInterface();
+                if (Hotkey.KeyPress(System.Windows.Forms.Keys.F9))
+                    AuraModule.Utils.locPlayer.FullResurrection();
             }
         }
     }

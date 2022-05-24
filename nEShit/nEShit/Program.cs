@@ -31,7 +31,6 @@ namespace nEShit
             int.TryParse(Console.ReadLine(), out int msg);
             if (msg != 0)
             {
-                if (!(Pinvoke.SelectedProcessInfo.pid == msg)) return;
                 Pinvoke.InjectPID = (uint)msg;
                 if (Load_Pattern.RetrieveAddresses((uint)msg))
                 {

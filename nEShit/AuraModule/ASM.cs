@@ -17,10 +17,6 @@ namespace AuraModule
             string[] mnemonics =
                 nMnemonics.localPlayer.GetLocalPlayer(MemoryStore.TARGETING_COLLECTIONS_BASE, MemoryStore.GET_LOCAL_PLAYER);
 
-#if DEBUG
-            IntPtr DebugPtr = Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer");
-            Console.WriteLine($"GetLocalPlayer 0x{DebugPtr.ToString("X")}\n");
-#endif
             return new Struct.Entity(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetLocalPlayer"));
             //return new Struct.Entity(Memory.Assemble.InjectAndExecute(mnemonics));
 
@@ -32,10 +28,6 @@ namespace AuraModule
 
             string[] mnemonics =
                 nMnemonics.inventory.GetInventoryBag(thisPtr, MemoryStore.INVENTORY_ACCESS_FUNCTION, (int)bagId, (int)inventoryType);
-#if DEBUG
-            IntPtr DebugPtr = Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag");
-            Console.WriteLine($"GetInventoryBag 0x{DebugPtr.ToString("X")}\n");
-#endif
 
             return new Struct.InventoryBag(Memory.Assemble.Execute<IntPtr>(mnemonics, "GetInventoryBag"));
 
@@ -115,7 +107,43 @@ namespace AuraModule
                 }
                 return num;
             }
-        }        
+        }
+
+        public static Dictionary<int, IntPtr> GetAKCollection(/* = TARGETING_COLLECTIONS_BASE*/ Int32 offset)
+        {
+            if (MemoryStore.AK_COLLECTION_LIST == IntPtr.Zero) return null;
+            IntPtr tmp = Memory.Reader.Read<IntPtr>(MemoryStore.AK_COLLECTION_LIST);
+            IntPtr intPtr = Memory.Reader.Read<IntPtr>((tmp + offset) + 0x8);
+            Dictionary<int, IntPtr> dictionary = new Dictionary<int, IntPtr>();
+            List<IntPtr> list = new List<IntPtr>();
+            if (intPtr == IntPtr.Zero)
+                return dictionary;
+            intPtr = Memory.Reader.Read<IntPtr>(intPtr);
+            if (intPtr == IntPtr.Zero)
+                return dictionary;
+
+            while (intPtr != IntPtr.Zero && !list.Contains(intPtr))
+            {
+                int key = Memory.Reader.Read<int>(intPtr + 0x8);//container
+                IntPtr intPtr2 = Memory.Reader.Read<IntPtr>(intPtr + 0xC); //nbElements
+
+                if (intPtr2 != IntPtr.Zero && !dictionary.ContainsKey(key))
+                    dictionary.Add(key, intPtr2);
+
+                list.Add(intPtr);
+                intPtr = Memory.Reader.Read<IntPtr>(intPtr);
+            }
+            return dictionary;
+        }
+        public static void GetItemData()
+        {
+            int Count = 0;
+            foreach (KeyValuePair<int, IntPtr> keyValuePair in GetAKCollection(0xB38))
+            {
+                if (keyValuePair.Key != 0 && keyValuePair.Value != IntPtr.Zero)
+                    Count++;
+            }
+        }
     }
 
 }

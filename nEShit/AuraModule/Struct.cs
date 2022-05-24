@@ -255,14 +255,14 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<uint>(Pointer + 0x124);
+                return Memory.Reader.Read<uint>(Pointer + 0x12C);
             }
         }
         public short chatAttempts
         {
             get
             {
-                return Memory.Reader.Read<short>(Pointer + 0x128);
+                return Memory.Reader.Read<short>(Pointer + 0x130);
             }
         }
 
@@ -414,8 +414,8 @@ namespace Struct
         private readonly int[] bestMessageIDs = new int[]
 {
             0x36,
-            0xd8,
-            0xd9
+            0xD8,
+            0xD9
 };
         private enum EudemonAction
         {
@@ -442,7 +442,7 @@ namespace Struct
             switch (action)
             {
                 case EudemonAction.EA_TALK:
-                    if (eudemon.chatAttempts == 0 /*|| eudemon.chatAttempts == 99*/)
+                    if (eudemon.chatAttempts == 0 || eudemon.chatAttempts == 99)
                         return false;
                     //		LogMessage(Eidolons, StringFormat("Talking to eidolon at slot %d.", slotID + 1));
                     Console.WriteLine($"[EAL]: Talking to eidolon at slot {slotID + 1}");
@@ -459,6 +459,7 @@ namespace Struct
                     Console.WriteLine($"[EAL]: Retrieving object from eidolon at slot {slotID + 1}");
                     break;
             }
+
             string[] mnemonics =
                 nMnemonics.eudemon.TryEudemonAction(eudemon.Pointer, (int)action, arg1, MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION);
 
