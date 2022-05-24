@@ -96,6 +96,15 @@ public unsafe static class ExecuteCB
     {
         if (Attach.PID != 0)
         {
+            //Hookbase to access to remove
+            foreach (MyMemory.Hooks.HookBase hookBase in ExecuteCB.HookList)
+            {
+                if (hookBase.IsApplied)
+                {
+                    hookBase.Remove();
+                }
+            }
+            ExecuteCB.MainLoop.Remove();
             bool MainLoop = Memory.Allocator.DisposeAlloc(ExecuteCB.Executor.EntryPointPointer);
             Console.WriteLine($"UnHooking : {MainLoop}");
         }

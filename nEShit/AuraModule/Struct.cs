@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -255,20 +256,28 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<uint>(Pointer + 0x12C);
+                uint rt = Memory.Reader.Read<uint>(Pointer + 0x12C);
+#if DEBUG
+                Debug.WriteLine($"currentPM: {currentPM}");
+#endif
+                return rt;
             }
         }
         public short chatAttempts
         {
             get
             {
-                return Memory.Reader.Read<short>(Pointer + 0x130);
+                short rt = Memory.Reader.Read<short>(Pointer + 0x130);
+#if DEBUG
+                Debug.WriteLine($"chatAttempts: {rt}");
+#endif
+                return rt;
             }
         }
 
     }
 
-    #region Inventory
+#region Inventory
     public class InventoryBag
     {
         public InventoryBag(IntPtr intPtr)
@@ -393,9 +402,9 @@ namespace Struct
             }
         }
     }
-    #endregion
+#endregion
 
-    #region WindowManager Struct
+#region WindowManager Struct
     public class EudemonExtendWindow
     {
         public EudemonExtendWindow(IntPtr intPtr)
@@ -744,9 +753,9 @@ namespace Struct
         }
     }
 
-    #endregion
+#endregion
 
-    #region Cooking Stuff
+#region Cooking Stuff
     public class IngredientStruct
     {
         public IngredientStruct(IntPtr intPtr)
@@ -772,5 +781,5 @@ namespace Struct
     }
 
 
-    #endregion
+#endregion
 }

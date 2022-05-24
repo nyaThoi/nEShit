@@ -26,7 +26,7 @@ namespace nEShit
         private void MainInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Call Game Crash Msg lul
-            //Hook.UnsetHook();
+            Hook.UnsetHook();
         }
 
         private void loop_Tick(object sender, EventArgs e)
