@@ -15,9 +15,12 @@ External Hack for AK.TO
 - Eidolon Auto Link without Inventory Check 
 (https://github.com/AlainProvist/EAL)
 
+# **Issues**
+- Unhook Feature required to close the UI (not the Console Window)
+- Any Struct's from this Projekt is not right, it needed to Update the Offsets.
 
 # **Bugs**
-- Unhook/Reject to Game Process doenst work, to fix that restart ur Game
+- Any
 
 
 # **Library**
