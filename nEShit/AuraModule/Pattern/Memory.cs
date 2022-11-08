@@ -55,7 +55,7 @@ public class Load_Pattern
         MemoryStore.CURRENT_MAP_BASE = PatternManager.FindPatternAlain(gameproc, "8B 0D ? ? ? ? E8 ? ? ? ? A1 ? ? ? ? 85 C0 75 05 E8 ? ? ? ? ", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
 
         MemoryStore.PLAYER_Resurrection = PatternManager.FindPatternAlain(gameproc, "e8 ? ? ? ? 83 c4 ? 83 7d ? ? 72 ? ff 75 ? e8 ? ? ? ? 83 c4 ? 8b 4d ? b0 ? 64 89 0d ? ? ? ? 8b e5 5d c2 ? ? 8d 49", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
-        MemoryStore.PLAYER_DoUIAction = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 83 C4 0C FF 37", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
+        MemoryStore.PLAYER_DoUIAction = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 83 C4 14 E9 ? ? ? ? 6A 07", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
 
         MemoryStore.FISHING_SetNextState = PatternManager.FindPattern(gameproc, "55 8b ec 64 a1 ? ? ? ? 6a ? 68 ? ? ? ? 50 8b 45 ? 64 89 25 ? ? ? ? 83 ec ? 83 78 ? ? 56 8b f1 0f 85 ? ? ? ? 0f b7 86 ? ? ? ? 83 e8");
         MemoryStore.FISHING_ExitState = PatternManager.FindPattern(gameproc, "55 8b ec 6a ? 68 ? ? ? ? 64 a1 ? ? ? ? 50 64 89 25 ? ? ? ? 51 56 8b f1 89 75 ? c7 06 ? ? ? ? ff b6 ? ? ? ? c7 45 ? ? ? ? ? e8 ? ? ? ? 8b 8e ? ? ? ? 83 c4 ? 85 c9 74 ? 8b 01 6a ? ff 10 c7 86 ? ? ? ? ? ? ? ? 8b ce e8");

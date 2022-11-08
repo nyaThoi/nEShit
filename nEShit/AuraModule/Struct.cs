@@ -245,6 +245,12 @@ namespace Struct
             Pointer = intPtr;
         }
         public IntPtr Pointer { get; set; }
+        private enum StructureOff
+        {
+            currentPM = 0x1F4,
+            chatAttempts = 0x1F8 //1-3
+        };
+
         public bool IsValid
         {
             get
@@ -256,9 +262,9 @@ namespace Struct
         {
             get
             {
-                uint rt = Memory.Reader.Read<uint>(Pointer + 0x12C);
+                uint rt = Memory.Reader.Read<uint>(Pointer + (System.Int32)StructureOff.currentPM);
 #if DEBUG
-                Debug.WriteLine($"currentPM: {currentPM}");
+                Debug.WriteLine($"currentPM: {rt}");
 #endif
                 return rt;
             }
@@ -267,7 +273,7 @@ namespace Struct
         {
             get
             {
-                short rt = Memory.Reader.Read<short>(Pointer + 0x130);
+                short rt = Memory.Reader.Read<short>(Pointer + (System.Int32)StructureOff.chatAttempts);
 #if DEBUG
                 Debug.WriteLine($"chatAttempts: {rt}");
 #endif
@@ -412,6 +418,7 @@ namespace Struct
             WndPointer = intPtr;
         }
         public IntPtr WndPointer { get; set; }
+
         private bool IsValid
         {
             get
@@ -532,6 +539,13 @@ namespace Struct
             WndPointer = intPtr;
         }
         public IntPtr WndPointer { get; set; }
+        private enum StructureOff
+        {
+            fishingState = 0x21C,
+            blueRangeMax = 0x24C,
+            blueRangeMin = 0x250,
+            currentLine = 0x26C
+        };
         public bool IsValid
         {
             get
@@ -543,33 +557,33 @@ namespace Struct
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x240);
+                return Memory.Reader.Read<float>(WndPointer + (System.Int32)StructureOff.blueRangeMax);
             }
             set
             {
-                Memory.Writer.Write<float>(WndPointer + 0x240, value);
+                Memory.Writer.Write<float>(WndPointer + (System.Int32)StructureOff.blueRangeMax, value);
             }
         }
         private float blueRangeMin
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x244);
+                return Memory.Reader.Read<float>(WndPointer + (System.Int32)StructureOff.blueRangeMin);
             }
             set
             {
-                Memory.Writer.Write<float>(WndPointer + 0x244, value);
+                Memory.Writer.Write<float>(WndPointer + (System.Int32)StructureOff.blueRangeMin, value);
             }
         }
         private float currentLine
         {
             get
             {
-                return Memory.Reader.Read<float>(WndPointer + 0x260);
+                return Memory.Reader.Read<float>(WndPointer + (System.Int32)StructureOff.currentLine);
             }
             set
             {
-                Memory.Writer.Write<float>(WndPointer + 0x260, value);
+                Memory.Writer.Write<float>(WndPointer + (System.Int32)StructureOff.currentLine, value);
             }
         }
         private float blueCenterValue
@@ -584,7 +598,7 @@ namespace Struct
         {
             get
             {
-                return (AuraModule.FishingState)Memory.Reader.Read<byte>(WndPointer + 0x210);
+                return (AuraModule.FishingState)Memory.Reader.Read<byte>(WndPointer + (System.Int32)StructureOff.fishingState);
             }
         }
         public void setBlueRangeHack()
