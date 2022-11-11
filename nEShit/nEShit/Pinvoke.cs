@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 class Pinvoke
 {
     [DllImport("kernel32.dll")]
-    internal static extern uint GetConsoleWindow();
+    internal static extern IntPtr GetConsoleWindow();
     [DllImport("user32.dll")]
     internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
     [DllImport("user32.dll")]

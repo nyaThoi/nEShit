@@ -43,6 +43,7 @@ namespace AuraModule
 		Baiting,
 		AutomaticFishing,
 		ActiveFishing,
+		undetected,
 		EndAnimation
 	}
     #endregion

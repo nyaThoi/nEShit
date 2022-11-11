@@ -667,9 +667,10 @@ namespace Struct
 
                     break;
                 case AuraModule.FishingState.Baiting:
-
                     return;
                 case AuraModule.FishingState.AutomaticFishing:
+                    if (AuraModule.Fishing.FishTypeSTR != "")
+                        Console.WriteLine($"[FishingAssist]: Detect {AuraModule.Fishing.FishTypeSTR}");
                     SetNextState();
 
                     return;
@@ -678,7 +679,6 @@ namespace Struct
 
                     return;
                 case AuraModule.FishingState.EndAnimation:
-
                     return;
             }
                 

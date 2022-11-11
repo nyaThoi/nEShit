@@ -38,8 +38,8 @@ namespace nEShit
                     Environment.Exit(0);
                 }
                 Hook.SetHook();
+#if (!DEBUG)
                 var handle = Pinvoke.GetConsoleWindow();
-#if RELEASE
                 Pinvoke.ShowWindow(handle, 0);
 #endif
 

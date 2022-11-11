@@ -79,10 +79,16 @@ namespace nEShit
         {
             if (Pinvoke.ForegroundWindow())
             {
-                if(Hotkey.KeyPress(System.Windows.Forms.Keys.F10))
+                var handle = Pinvoke.GetConsoleWindow();
+
+                if (Hotkey.KeyPress(System.Windows.Forms.Keys.F10))
                     AuraModule.Utils.locPlayer.TeleportInterface();
                 if (Hotkey.KeyPress(System.Windows.Forms.Keys.F9))
                     AuraModule.Utils.locPlayer.FullResurrection();
+                if (Hotkey.KeyPress(System.Windows.Forms.Keys.F11))
+                    Pinvoke.ShowWindow(handle, 0);
+                if (Hotkey.KeyPress(System.Windows.Forms.Keys.F12))
+                    Pinvoke.ShowWindow(handle, 1);
             }
         }
     }

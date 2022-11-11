@@ -45,17 +45,17 @@ namespace AuraModule
         {
             get
             {
-                string str = "FishType: ...";
+                string str = String.Empty;
                 if (UnwandtedFishType_White)
-                    str = "Fishtype: White Fish"; 
+                    str = "White Fish"; 
                 if (UnwandtedFishType_Green)
-                    str = "Fishtype: Green Fish";
+                    str = "Green Fish";
                 if (UnwandtedFishType_Orange)
-                    str = "Fishtype: Orange Fish";
+                    str = "Orange Fish";
                 if (UnwandtedFishType_MiracleCube)
-                    str = "Fishtype: Miracle Cube";
+                    str = "Miracle Cube";
                 if (UnwandtedFishType_FishKinge)
-                    str = "Fishtype: Fish King";
+                    str = "Fish King";
                 return str;
             }
         }
