@@ -32,6 +32,11 @@ namespace nEShit
             if (msg != 0)
             {
                 Pinvoke.InjectPID = (uint)msg;
+                if (!Pinvoke.PIDCheck())
+                {
+                    MessageBox.Show("Somethings wrong on Inject Process, recheck ur PID! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (Load_Pattern.RetrieveAddresses((uint)msg))
                 {
                     MessageBox.Show("Pattern not found! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

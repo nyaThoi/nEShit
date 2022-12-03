@@ -49,10 +49,9 @@ class Pinvoke
         }
     }
     public static InterObject SelectedProcessInfo = new InterObject();
+    public static Process[] plist = Process.GetProcesses();
     internal static void GetCurrentProccess()
     {
-        Process[] plist = Process.GetProcesses();
-
         foreach (var p in plist)
         {
             if (p.ProcessName.Contains("game.bin"))
@@ -84,4 +83,12 @@ class Pinvoke
         }
         return cstate;
     }
+    internal static bool PIDCheck()
+    {
+        bool rt = false;
+        if (SelectedProcessInfo.pid == InjectPID && !(InjectPID == 0))
+            rt = true;
+        return rt;
+    }
+
 }
