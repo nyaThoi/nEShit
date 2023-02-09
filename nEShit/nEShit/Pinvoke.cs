@@ -86,8 +86,22 @@ class Pinvoke
     internal static bool PIDCheck()
     {
         bool rt = false;
-        if (SelectedProcessInfo.pid == InjectPID && !(InjectPID == 0))
-            rt = true;
+        foreach (var p in plist)
+        {
+            if (p.ProcessName.Contains("game.bin"))
+            {
+                SelectedProcessInfo.pid = p.Id;
+                if (SelectedProcessInfo.pid == InjectPID && !(InjectPID == 0))
+                    rt = true;
+            }
+            if (p.ProcessName.Contains("Launcher"))
+            {
+                SelectedProcessInfo.pid = p.Id;
+                if (SelectedProcessInfo.pid == InjectPID && !(InjectPID == 0))
+                    rt = true;
+            }
+
+        }
         return rt;
     }
 
