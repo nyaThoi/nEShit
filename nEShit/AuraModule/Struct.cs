@@ -247,8 +247,8 @@ namespace Struct
         public IntPtr Pointer { get; set; }
         private enum StructureOff
         {
-            currentPM = 0x1F4,
-            chatAttempts = 0x1F8 //1-3
+            currentPM = 0x200,// Energy XX
+            chatAttempts = 0x204 //0-3
         };
 
         public bool IsValid
@@ -478,7 +478,6 @@ namespace Struct
 
             string[] mnemonics =
                 nMnemonics.eudemon.TryEudemonAction(eudemon.Pointer, (int)action, arg1, MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION);
-
             Memory.Assemble.Execute<IntPtr>(mnemonics, "Eudemon - TryEudemonAction");
             //Memory.Assemble.InjectAndExecute(mnemonics);
             return true;

@@ -45,7 +45,7 @@ public class Load_Pattern
         MemoryStore.INVENTORY_ACCESS_FUNCTION = PatternManager.FindPattern(gameproc, "55 8B EC 8B 55 08 33 C0 83 FA 0D");
         MemoryStore.TARGETING_COLLECTIONS_BASE = PatternManager.FindPatternAlain(gameproc, "8B 0D ? ? ? ? E8 ? ? ? ? 8B F8 0F BF 86 ? ? ? ?", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
         MemoryStore.WND_INTERFACE_BASE = PatternManager.FindPatternAlain(gameproc, "3b 35 ? ? ? ? 0f 85 ? ? ? ? 5f 5b 5e", 1, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES_RAW);
-        MemoryStore.EUDEMON_GETEUDEMON_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 85 C0 75 2A", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
+        MemoryStore.EUDEMON_GETEUDEMON_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 85 C0 75 2A 8D 78 03 EB 07", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.EUDEMON_SENDCOMMAND_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? 0F B7 87 ? ? ? ? 83 C4 10 8B CF", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         MemoryStore.EUDEMON_SELECT_FUNCTION = PatternManager.FindPatternAlain(gameproc, "E8 ? ? ? ? E9 ? ? ? ? 0F B7 41 08 50", 0, 1, PatternManager.MemoryType.RT_READNEXT4_BYTES);
         // occu 1: EUDEMON_HASGIFT_FUNCTION || occu 2: EUDEMON_ISMEDITATING_FUNCTION: 00 00 7D 29 8B,
@@ -61,9 +61,7 @@ public class Load_Pattern
         MemoryStore.FISHING_ExitState = PatternManager.FindPattern(gameproc, "55 8b ec 6a ? 68 ? ? ? ? 64 a1 ? ? ? ? 50 64 89 25 ? ? ? ? 51 56 8b f1 89 75 ? c7 06 ? ? ? ? ff b6 ? ? ? ? c7 45 ? ? ? ? ? e8 ? ? ? ? 8b 8e ? ? ? ? 83 c4 ? 85 c9 74 ? 8b 01 6a ? ff 10 c7 86 ? ? ? ? ? ? ? ? 8b ce e8");
         //MemoryStore.AK_COLLECTION_LIST = PatternManager.FindPattern(gameproc, "xx");
     }
-
     public static bool SteamClient = false;
-
     public static bool RetrieveAddresses(uint gamePID)
     {
         Attach.PID = gamePID;

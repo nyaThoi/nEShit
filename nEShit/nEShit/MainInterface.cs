@@ -40,7 +40,7 @@ namespace nEShit
                 AuraModule.Utils.locPlayer.SetMovementValue((float)trackBar1.Value);
             // Auto Resurrection if currentLife is 0
             if(resurrection.Checked)
-                AuraModule.Utils.locPlayer.FullResurrection(); 
+                AuraModule.Utils.locPlayer.FullResurrection();
             // Auto Eidolon Link without Inventory Check
             if (eal.Checked)
                 WindowManager.GetEudemonExtendWindow.UpdateEudemons(false);
